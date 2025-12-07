@@ -35,6 +35,15 @@ inv_add(inv, $empty_source, 1);
 inv_add(inv, softclay, 1);
 p_delay(1); // 2 ticks
 mes("You now have some soft workable clay.");
+weakqueue*(make_softclay_repeat, 2)($water_source);
+
+[queue,make_softclay_repeat](obj $water_source)
+if (inv_total(inv, $water_source) > 0 & inv_total(inv, clay) > 0) {
+    def_int $slot = ~inv_find(inv, $water_source, 0);
+    if ($slot >= 0) {
+        @make_softclay(inv_getobj(inv, $slot));
+    }
+}
 
 [label,craft_pottery_interface] 
 def_namedobj $choice = ~multiobj3(
@@ -70,6 +79,13 @@ inv_del(inv, softclay, 1);
 inv_add(inv, $item, 1);
 stat_advance(crafting, struct_param($struct, processexp));
 mes("You make the clay into a <substring($name, 8, string_length($name))>.");
+weakqueue*(craft_pottery_repeat, 2)($item);
+
+[queue,craft_pottery_repeat](namedobj $last)
+if (inv_total(inv, softclay) > 0) {
+    @craft_pottery($last);
+}
+
 
 // No level req for some reason (does have a success chance though)
 [label,fire_pottery](int $last)
@@ -95,6 +111,15 @@ if (stat_random(crafting, 180, 800) = true) {
     mes("You remove the <oc_name($product)> from the oven.");
 } else {
     mes("The <oc_name($product)> cracks in the oven.");
+}
+weakqueue*(fire_pottery_repeat, 2)($last_obj);
+
+[queue,fire_pottery_repeat](obj $last)
+if (inv_total(inv, $last) > 0 & busy2 = false) {
+    def_int $slot = ~inv_find(inv, $last, 0);
+    if ($slot >= 0) {
+        @fire_pottery($slot);
+    }
 }
 
 

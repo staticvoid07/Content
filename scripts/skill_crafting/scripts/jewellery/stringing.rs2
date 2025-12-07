@@ -72,6 +72,15 @@ if (string_length($name) < 1) {
     $name = "amulet";
 }
 mes("You put some string on your <$name>.");
+weakqueue*(string_amulet_repeat, 2)($unstrung);
+
+[queue,string_amulet_repeat](obj $last)
+if (inv_total(inv, $last) > 0 & inv_total(inv, ball_of_wool) > 0) {
+    def_int $slot = ~inv_find(inv, $last, 0);
+    if ($slot >= 0) {
+        @string_amulet($slot);
+    }
+}
 
 
 

@@ -7,6 +7,11 @@ sound_synth(log_balance, 4, 0);
 mes("...You make it safely to the other side.");
 ~update_gnome_varp(1);
 
+// Go to the net
+if (loc_find(0_38_53_41_33, gnome_obstacle_net_1) = true) {
+    p_oploc(1);
+}
+
 [oploc1,gnome_obstacle_net_1]
 if(coordz(coord) <= coordz(loc_coord)) {
     mes("You can not do that from here.");
@@ -18,6 +23,11 @@ p_arrivedelay;
 ~agility_climb_up(75, movecoord(coord, 0, 1, -2));
 ~update_gnome_varp(2);
 
+// Climb the tree branch
+if (loc_find(1_38_53_41_30, gnome_tree_branch_1) = true) {
+    p_oploc(1);
+}
+
 [oploc1,gnome_tree_branch_1]
 mes("You climb the tree..");
 ~gnome_trainer_say("That's it - straight up");
@@ -26,6 +36,11 @@ p_arrivedelay;
 mes("...To the platform above.");
 ~update_gnome_varp(3);
 
+// Go to the balancing rope
+if (loc_find(2_38_53_46_28, gnome_balancing_rope) = true) {
+    p_oploc(1);
+}
+
 [oploc1,gnome_balancing_rope]
 p_arrivedelay;
 mes("You carefully cross the tightrope.");
@@ -33,6 +48,11 @@ mes("You carefully cross the tightrope.");
 sound_synth(tightrope, 5, 0);
 ~agility_force_move(75, human_walk_logbalance, movecoord(coord, 6, 0, 0));
 ~update_gnome_varp(4);
+
+// Go down the tree branch 2
+if (loc_find(2_38_53_54_27, gnome_tree_branch_2) = true) {
+    p_oploc(1);
+}
 
 [oploc1,gnome_tree_branch_2] @climbdown_gnome_tree_branch;
 [oploc1,gnome_tree_branch_3] @climbdown_gnome_tree_branch;
@@ -43,6 +63,11 @@ p_arrivedelay;
 ~agility_climb_up(50, 0_38_53_55_28);
 mes("You land on the ground.");
 ~update_gnome_varp(5);
+
+// Climb up the net 2
+if (loc_find(0_38_53_53_34, gnome_obstacle_net_2) = true) {
+    p_oploc(1);
+}
 
 [oploc1,gnome_obstacle_net_2]
 if(coordz(coord) >= coordz(loc_coord)) {
@@ -55,6 +80,11 @@ p_arrivedelay;
 ~agility_climb_up(75, movecoord(coord, 0, 0, 2));
 ~update_gnome_varp(6);
 
+// Go to the pipe
+if (loc_find(0_38_53_55_39, gnome_obstacle_pipe) = true) {
+    p_oploc(1);
+}
+
 [oploc1,gnome_obstacle_pipe]
 if(coordz(coord) > coordz(loc_coord)) {
     mes("You can't enter the pipe from this side.");
@@ -63,8 +93,7 @@ if(coordz(coord) > coordz(loc_coord)) {
 // Enter tube
 ~forcewalk2(movecoord(loc_coord, 0, 0, -1));
 if(%gnome_obstacle_pipe_used >= map_clock) {
-    mes("The pipe is being used"); 
-    return;
+    mes("You get all squishy in the pipe."); 
 }
 %gnome_obstacle_pipe_used = calc(map_clock + 5);
 ~agility_exactmove(human_doublepipesqueeze, 30, 4, movecoord(loc_coord, 0, 0, -1), movecoord(loc_coord, 0, 0, 2), 30, 126, ^exact_north, true);
@@ -77,6 +106,12 @@ p_delay(0);
 sound_synth(squeeze_in, 0, 0);
 stat_advance(agility, 75);
 ~update_gnome_varp(7);
+
+// Go to the log balance
+if (loc_find(0_38_53_42_43, gnome_log_balance) = true) {
+    ~forcemove(0_38_53_44_44);
+    p_oploc(1);
+}
 
 [proc,gnome_trainer_say](string $line)
 if(npc_find(coord, gnometrainer, 5, 0) = true) {

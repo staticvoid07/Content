@@ -46,6 +46,8 @@ if ($amount <= 0) {
     if (last_int <= 0) return;
     $amount = last_int;
 }
+mes("You can't do that.");
+return;
 
 def_obj $obj = inv_getobj(inv, $slot);
 if (oc_tradeable($obj) = false) { // also map_members check (after room is moved to f2p probably)

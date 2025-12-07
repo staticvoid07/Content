@@ -67,7 +67,7 @@ if (~macro_event_area(coord) = false) {
 if (%macro_event > 0) {
     return(false);
 }
-return(true);
+return(false);
 
 // called when the player logs in
 [queue,macro_event_login]

@@ -115,16 +115,26 @@ if (add(%lastcombat, 8) > map_clock) {
     return;
 }
 
+def_int $stun_ticks = db_getfield($data, pickpocket:stun_ticks, 0);
+
 if(%stunned > map_clock) {
     return;
 }
 
 if (%action_delay > map_clock) {
-    p_opnpc(3);
     return;
 }
 
 // inv full check happens on the engine level for pick pocketing.
 // https://oldschool.runescape.wiki/w/Update:Halloween_2016, when check was added for preventing attacking when an npc is being pickpocketed
-
 ~pick_pocket($data);
+if(%stunned > map_clock) {
+    weakqueue*(pick_pocket_queue, $stun_ticks)(npc_uid);
+} else {
+    weakqueue*(pick_pocket_queue, 1)(npc_uid);
+}
+
+[queue,pick_pocket_queue](npc_uid $nid)
+if (npc_finduid($nid) = true & busy2 = false) {
+    p_opnpc(3);
+}

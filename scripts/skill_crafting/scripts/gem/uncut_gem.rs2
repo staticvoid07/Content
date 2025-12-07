@@ -59,3 +59,13 @@ mes("You cut the <$product_name>.");
 inv_add(inv, $cut_gem, 1);
 stat_advance(crafting, db_getfield($data, gem_cutting_table:experience, 0));
 //-----------------------
+weakqueue*(crafting_gem_repeat, 2)($uncut_gem);
+//-----------------------
+
+[queue,crafting_gem_repeat](obj $last)
+if (inv_total(inv, $last) > 0) {
+    def_int $slot = ~inv_find(inv, $last, 0);
+    if ($slot >= 0) {
+        @crafting_gem(inv_getobj(inv, $slot));
+    }
+}

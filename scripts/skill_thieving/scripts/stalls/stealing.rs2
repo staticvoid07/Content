@@ -20,6 +20,11 @@
 @attempt_steal_from_stall(loc_type, loc_coord, loc_angle, loc_shape);
 
 [label,attempt_steal_from_stall](loc $loc, coord $loc_coord, int $loc_angle, locshape $loc_shape)
+if (loc_find($loc_coord, $loc) = true) {
+    weakqueue*(attempt_steal_from_stall_queue, 0)($loc, $loc_coord, $loc_angle, $loc_shape);
+}
+
+[queue,attempt_steal_from_stall_queue](loc $loc, coord $loc_coord, int $loc_angle, locshape $loc_shape)
 p_arrivedelay;
 
 db_find(stealing:loc, $loc);
@@ -69,7 +74,14 @@ if ($free_space = 0) {
     return;
 }
 
-~steal_from_stall($data, $loc_coord, $loc_angle, $loc_shape);
+def_int $respawn_ticks = ~scale_by_playercount(db_getfield($data, stealing:respawn_ticks, 0));
+
+if (loc_find($loc_coord, $loc) = true) {
+    ~steal_from_stall($data, $loc_coord, $loc_angle, $loc_shape);
+    weakqueue*(attempt_steal_from_stall_queue, $respawn_ticks)($loc, $loc_coord, $loc_angle, $loc_shape);
+}
+
+
 
 [proc,stealing_check_for_guard](dbrow $data)(boolean)
 def_int $npc_count = db_getfieldcount($data, stealing:guard);

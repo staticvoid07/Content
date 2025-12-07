@@ -1,6 +1,6 @@
-[opheld1,_bones] @bury_bones(last_slot);
+[opheld1,_bones] weakqueue(bury_bones, 0, last_slot);
 
-[label,bury_bones](int $slot)
+[queue,bury_bones](int $slot)
 mes("You dig a hole in the ground...");
 anim(human_pickupfloor, 0);
 sound_synth(bones_down, 1, 0);
@@ -11,9 +11,14 @@ p_delay(0);
 
 // delete is after delay: https://www.youtube.com/watch?v=OnW0ZwXLze4&t=141s
 def_obj $last_item = inv_getobj(inv, $slot);
-inv_delslot(inv, $slot);
+def_int $count = inv_total(inv, $last_item);
+inv_del(inv, $last_item, 1);
 stat_advance(prayer, oc_param($last_item, bone_exp));
 mes("You bury the bones.");
+
+if ($count > 1) {
+    weakqueue(bury_bones, 1, $slot);
+}
 
 if (afk_event = ^true) {
     @macro_event_prayer;
