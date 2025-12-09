@@ -251,10 +251,10 @@ if ($bar = gold_bar) {
     // No message for perfect gold items https://youtu.be/e8btuenT4nE?t=729
     mes("You make <~add_article(lowercase(oc_name($product)))>.");
 }
-$count = calc($count - 1);
-if ($count < 1) {
-    return;
-}
+// $count = calc($count - 1);
+// if ($count < 1) {
+//     return;
+// }
 
 // check if player has enough gold bars or gems
 if (inv_total(inv, $bar) < 1) {
@@ -269,6 +269,9 @@ if (inv_total(inv, $gem) < 1 & $gem ! null) {
 anim(human_furnace, 0);
 sound_synth(furnace, 0, 0);
 p_delay(2);
+weakqueue*(crafting_gold_repeat, 1)($product, $gem, $productexp, $count);
+
+[queue,crafting_gold_repeat](namedobj $product, namedobj $gem, int $productexp, int $count)
 ~crafting_gold($product, $gem, $productexp, $count);
 
 
@@ -327,7 +330,12 @@ stat_advance(crafting, struct_param($struct, productexp));
 // Confirmed, no period at the end. https://i.imgur.com/sCKRVO9.png
 mes("You make <~add_article(struct_param($struct, name))>");
 
-// weakqueue(crafting_silver, 1, $productexp, $product);
+if (inv_total(inv, silver_bar) > 0) {
+    weakqueue*(crafting_silver_repeat, 1)();
+}
+
+[queue,crafting_gold_repeat]()
+~craft_silver;
 //----------------------
 
 

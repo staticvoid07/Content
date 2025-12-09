@@ -58,11 +58,11 @@ sound_synth(furnace, 0, 0);
 // display process message
 mes(struct_param($struct, processmessage));
 
-p_delay(3);
+p_delay(2);
 
 // delete main ore
 inv_del(inv, struct_param($struct, ingredient), struct_param($struct, bar_count));
-weakqueue*(smelting_repeat, 3)($last);
+weakqueue*(smelting_repeat, 1)($last);
 // delete secondary ore
 if (struct_param($struct, ingredient_secondary) ! null) {
     inv_del(inv, struct_param($struct, ingredient_secondary), struct_param($struct, ingredient_secondary_count));
