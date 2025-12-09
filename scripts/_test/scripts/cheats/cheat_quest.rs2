@@ -738,11 +738,15 @@ if (p_finduid(uid) = true) {
                         ~mesbox("That quest is already completed!");
                     }
                 case 30 : 
-                    if (%heroquest < ^hero_complete) {
-                        inv_del(inv, coins, $quest_price);
-                        queue(hero_quest_complete, 0, 0);
+                    if(inv_total(inv, coins) >= 500000) {
+                        if (%heroquest < ^hero_complete) {
+                            inv_del(inv, coins, 500000);
+                            queue(hero_quest_complete, 0, 0);
+                        } else {
+                            ~mesbox("That quest is already completed!");
+                        }
                     } else {
-                        ~mesbox("That quest is already completed!");
+                        ~mesbox("That quest costs 500k!");
                     }
                 case 31 : 
                     if (%grail < ^grail_complete) {
@@ -759,13 +763,17 @@ if (p_finduid(uid) = true) {
                         ~mesbox("That quest is already completed!");
                     }
                 case 33 :
-                    if (%legendsquest < ^legends_complete) {
-                        inv_del(inv, coins, $quest_price);
-                        %legendsquest = ^legends_radimus_training_4;
-                        inv_add(inv, klanks_gauntlets, 1);
-                        queue(legends_quest_complete, 0, 0);
+                    if(inv_total(inv, coins) >= 500000) {
+                        if (%legendsquest < ^legends_complete) {
+                            inv_del(inv, coins, 500000);
+                            %legendsquest = ^legends_radimus_training_4;
+                            inv_add(inv, klanks_gauntlets, 1);
+                            queue(legends_quest_complete, 0, 0);
+                        } else {
+                            ~mesbox("That quest is already completed!");
+                        }
                     } else {
-                        ~mesbox("That quest is already completed!");
+                        ~mesbox("That quest costs 500k!");
                     }
                 case 34 : 
                     if (%zanaris < ^zanaris_complete) {
