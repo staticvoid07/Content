@@ -243,6 +243,8 @@ if (%tutorial < ^tutorial_complete) {
 } else {
     ~smithing_anvil($data, $count);
 }
+
+
 //--------------------------
 
 //--------------------------
@@ -263,20 +265,26 @@ def_struct $struct = oc_param($bar, smithing_anvil_struct);
 stat_advance(smithing, calc($bar_amount * struct_param($struct, xpperbar)));
 // display message
 mes("You hammer the <struct_param($struct, name)> and make <db_getfield($data,smithing:end_message,0)>.");
-p_delay(2);
+
+//p_delay(2);
+
 // end smithing if count is less than 1
-$count = calc($count - 1);
+//$count = calc($count - 1);
 // check if player has enough bars
 if (inv_total(inv, $bar) < $bar_amount & $count > 0) {
     ~mesbox("You don't have enough <lowercase(oc_name($bar))>s to make any more."); // https://youtu.be/Xud7h207rZc?t=286
     return;
 }
-if ($count < 1) {
-    return;
-}
+// if ($count < 1) {
+//     return;
+// }
 // play anim and sound
 anim(human_smithing, 0);
 sound_synth(anvil_4, 0, 0);
 // recall proc
-~smithing_anvil($data, $count);
+//~smithing_anvil($data, $count);
+weakqueue*(smithing_anvil_loop, 2)($data, 1);
 //--------------------------
+
+[queue,smithing_anvil_loop](dbrow $data, int $count)
+~smithing_anvil($data, $count);

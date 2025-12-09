@@ -5,18 +5,18 @@ if (npc_findhero = ^false) {
     return;
 }
 // Default drop from config.
-obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
+inv_add(inv, npc_param(death_drop), 1);
 
 // Tertiary
 gosub(trail_checkmediumdrop);
 
 // Normal drop
-obj_add(npc_coord, raw_chicken, 1, ^lootdrop_duration);
+inv_add(inv, raw_chicken, 1);
 
 // Other
 def_int $rng = random(128);
 if ($rng < 32) {
-    obj_add(npc_coord, feather, 15, ^lootdrop_duration);
+    inv_add(inv, feather, 15);
 } else if ($rng < 64) {
-    obj_add(npc_coord, feather, 5, ^lootdrop_duration);
+    inv_add(inv, feather, 5);
 }

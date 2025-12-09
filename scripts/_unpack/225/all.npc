@@ -1097,6 +1097,8 @@ param=defend_sound,chicken_hit
 param=death_sound,chicken_death
 param=retreat,1
 category=chicken
+huntmode=no_afk_timer_melee
+huntrange=2
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_1173
 
@@ -2133,6 +2135,8 @@ param=attack_sound,cow_attack
 param=defend_sound,cow_hit
 param=death_sound,cow_death
 category=cow
+huntmode=no_afk_timer_melee
+huntrange=2
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_2790
 
@@ -4642,7 +4646,7 @@ magic=10
 attackrange=8
 huntrange=3
 param=damagetype,^crush_style
-huntmode=ranged
+huntmode=no_afk_timer_ranged
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_520
 

@@ -1,5 +1,5 @@
 [login,_]
-mes("Welcome to RuneScape.");
+mes("Welcome to the vortex.");
 cam_reset;
 
 %musicplay = 1; // set to auto on login

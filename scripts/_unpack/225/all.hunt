@@ -1,3 +1,27 @@
+[no_afk_timer_melee]
+type=player
+check_vis=lineofsight
+check_nottoostrong=off
+check_notcombat=%lastcombat
+check_notcombat_self=%npc_lastcombat
+check_notbusy=off
+find_keephunting=on
+check_afk=off
+find_newmode=opplayer2
+
+// guessing that constant means keephunting=on
+// and the difference between aggressive may include nottoostrong
+[no_afk_timer_ranged]
+type=player
+check_vis=lineofsight
+check_nottoostrong=off
+check_notcombat=%lastcombat
+check_notcombat_self=%npc_lastcombat
+check_notbusy=off
+find_keephunting=on
+find_newmode=applayer2
+check_afk=off
+
 // guessing that ranged means nottoostrong
 [ranged]
 type=player

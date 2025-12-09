@@ -46,6 +46,9 @@ p_telejump(map_findsquare(db_getfield($data, runecraft_table:enter_coord, random
 
 [label,runecraft_runes]
 def_dbrow $data = ~get_runecraft_data(loc_param(rune_type));
+weakqueue*(runecraft_runes_repeat, 0)($data);
+
+[queue,runecraft_runes_repeat](dbrow $data)
 if ($data = null) {
     ~displaymessage(^dm_default);
     return;
@@ -71,6 +74,9 @@ if ($total_ess = 0) {
     ~mesbox("You do not have any rune stones to bind.");
     return;
 }
+if ($total_ess > 28) {
+    $total_ess = 28;
+}
 
 anim(human_runecraft, 0);
 spotanim_pl(runecrafting, 96, 0);
@@ -95,8 +101,8 @@ stat_advance(runecraft, calc($total_ess * db_getfield($data, runecraft_table:exp
 // later revs they just use oc_name($rune), i think after 2007 or so
 mes("You bind the temple's power into <db_getfield($data, runecraft_table:name, 0)> Runes.");
 inv_add(inv, $rune, calc($total_ess * $rune_count_per_ess));
-p_delay(3);
-
+p_delay(2);
+weakqueue*(runecraft_runes_repeat, 1)($data);
 
 [opheld4,_talismans]
 def_obj $last_item = last_item;

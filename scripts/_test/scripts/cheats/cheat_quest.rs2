@@ -472,3 +472,469 @@ return;
 ~update_questlist;
 mes("All quests have been reset.");
 return;
+
+
+[label,purchase_quest]
+if_close;
+if (p_finduid(uid) = true) {
+    // This is the original individual quest selection code
+    def_int $int1 = 0;
+    def_string $string1 = "";
+    def_int $int2 = 0;
+    def_string $string2 = "";
+    def_int $int3 = 0;
+    def_string $string3 = "";
+
+    def_int $page = 0;
+    def_int $choice = -1;
+    def_int $max_pages = divide(add(enum_getoutputcount(quest_names_enum), 1), 3);
+
+    while ($choice = -1 | $choice = -2) {
+        $int1 = multiply($page, 3);
+        $string1 = enum(int, string, quest_names_enum, $int1);
+        $int2 = add($int1, 1);
+        $string2 = enum(int, string, quest_names_enum, $int2);
+        $int3 = add($int2, 1);
+        $string3 = enum(int, string, quest_names_enum, $int3);
+        $choice = ~p_choice5_header("Prev.", -1, "<tostring($int1)>. <$string1>", $int1, "<tostring($int2)>. <$string2>", $int2, "<tostring($int3)>. <$string3>", $int3, "Next.", -2, "Choose a quest: (Page <tostring($page)>/<tostring($max_pages)>)");
+        if ($choice = -1 & $page ! 0) {
+            $page = sub($page, 1);
+        } else if ($choice = -2 & $page ! $max_pages) {
+            $page = add($page, 1);
+        }
+    }
+    def_int $quest_price = 1;
+    def_int $quest = $choice;
+    def_int $choice2 = ~p_choice2_header("Complete.", 0, "Cancel.", 2, "<enum(int, string, quest_names_enum, $quest)>");
+    if ($choice2 = 2) {
+        return;
+    } else if ($choice2 = 0) {
+        if(inv_total(inv, coins) >= $quest_price) {
+            switch_int ($quest) {
+                case 0 : 
+                    if (%spy < ^blackknight_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(black_knights_fortress_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 1 : 
+                    if (%cookquest < ^cook_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(cooks_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 2 : 
+                    if (%demonstart < ^demon_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(demon_slayer_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    } 
+                case 3 : 
+                    if (%doricquest < ^doric_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(doric_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 4 : 
+                    if (%dragonquest < ^dragon_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(dragon_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 5 :
+                    if (%haunted < ^haunted_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        ~change_ernest;
+                        %haunted = ^haunted_complete;
+                        queue(haunted_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 6 : 
+                    if (%goblinquest < ^gobdip_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(goblin_diplomacy_complete_quest, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 7 : 
+                    if (%squire < ^squire_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(squire_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 8 : 
+                    if (%imp < ^imp_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(imp_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 9 : 
+                    if (%hunt < ^hunt_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(hunt_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 10 : 
+                    if (%princequest < ^prince_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(prince_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 11 : 
+                    if (%prieststart < ^priest_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(priest_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 12 : 
+                    if (%rjquest < ^romeojuliet_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(romeo_and_juliet_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 13 : 
+                    if (%runemysteries < ^runemysteries_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(rune_mysteries_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 14 : 
+                    if (%sheep < ^sheep_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(sheep_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 15 : 
+                    if (%phoenixgang < ^phoenixgang_complete) {
+                        if (%blackarmgang < ^blackarmgang_complete) {
+                            switch_int(~p_choice2_header("Black Arm Gang.", 0, "Phoenix Gang.", 1, "Choose a gang for Shield of Arrav:")) {
+                                case 0 : %phoenixgang = ^phoenixgang_not_started;
+                                case 1 : %phoenixgang = ^phoenixgang_joined;
+                            }
+                            inv_del(inv, coins, $quest_price);
+                            queue(blackarmgang_quest_complete, 0, 0);
+                        } else {
+                            ~mesbox("That quest is already completed!");
+                        }
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 16 : 
+                    if (%vampire < ^vampire_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(quest_vampire_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 17 : 
+                    if (%hetty < ^hetty_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(hetty_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 18 : 
+                    if (%chompybird < ^chompybird_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(quest_chompybird_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 19 : 
+                    if (%biohazard < ^biohazard_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(quest_biohazard_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 20 : 
+                    if (%cogquest < ^quest_cog_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(cog_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 21 : 
+                    if (%itexamlevel < ^itexam_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(itexam_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 22 :
+                    if (%druidquest < ^druid_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        if (npc_find(0_45_54_45_30, kaqemeex, 7, 0) = true) {
+                            queue*(druid_quest_complete, 0)(npc_uid);
+                        }
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 23 : 
+                    if (%mcannon < ^mcannon_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(mcannon_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 24 : 
+                    if (%crestquest < ^crest_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(crest_complete, 0, 0);
+                        // Complete all blast spells and levers, gauntlet choice unselected
+                        %crest_spells_levers_gauntlets = calc(pow(2, ^crest_south_lever) - 1);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 25 :
+                    if (%arenaquest < 14) {
+                        inv_del(inv, coins, $quest_price);
+                        %arenaquest = ^arena_defeated_genkhazard;
+                        queue(arena_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 26 : 
+                    if (%fishingcompo < ^fishingcompo_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(fishingcompo_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 27 : 
+                    if (%fluffs < ^fluffs_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        %fluffs = ^fluffs_complete;
+                        queue(fluffs_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 28 : 
+                    if (%grandtree < ^grandtree_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(grandtree_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 29 : 
+                    if (%hazeelcultquest < ^hazeelcult_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(hazeelcult_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 30 : 
+                    if (%heroquest < ^hero_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(hero_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 31 : 
+                    if (%grail < ^grail_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(grail_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 32 : 
+                    if (%junglepotion < ^junglepotion_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(junglepotion_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 33 :
+                    if (%legendsquest < ^legends_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        %legendsquest = ^legends_radimus_training_4;
+                        inv_add(inv, klanks_gauntlets, 1);
+                        queue(legends_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 34 : 
+                    if (%zanaris < ^zanaris_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        inv_add(inv, dramen_staff, 1);
+                        queue(zanaris_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 35 : 
+                    if (%arthur < ^arthur_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(arthur_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 36 : 
+                    if (%drunkmonkquest < ^drunkmonk_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(drunkmonk_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 37 : 
+                    if (%murderquest < ^murder_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(murder_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 38 :
+                    if (%itgronigen < ^itgronigen_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        stat_advance(crafting, 22500);
+                        inv_add(inv, uncut_sapphire, 1);
+                        %itgronigen = ^itgronigen_complete;
+                        %qp = calc(%qp + ^itgronigen_questpoints);
+                        queue(itgronigen_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 39 : 
+                    if (%elenaquest < ^elena_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(quest_elena_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 40 : 
+                    if (%scorpcatcher < ^scorpcatcher_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(scorpcatcher_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 41 : 
+                    if (%seaslugquest < ^seaslug_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        %seaslugquest = ^seaslug_complete;
+                        %qp = add(%qp, ^seaslug_questpoints);
+                        inv_add(inv, bigoysterpearls, 1);
+                        stat_advance(fishing, 71750);
+                        queue(seaslug_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 42 : 
+                    if (%sheepherderquest < ^sheepherder_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(sheepherder_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 43 : 
+                    if (%zombiequeen < ^zombiequeen_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(zombiequeen_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 44 :
+                    if (%ikov < ^ikov_completed_lucien) {
+                        if (%ikov < ^ikov_completed_armadyl) {
+                            inv_del(inv, coins, $quest_price);
+                            def_int $choice4 = ~p_choice2_header("Armadyl.", 0, "Lucien.", 1, "Choose a side for Temple of Ikov:");
+                            if ($choice4 = 0) {
+                                if (npc_find(0_40_51_13_57, ikov_lucien1, 7, 0) = true) {
+                                    queue*(ikov_armadyl_quest_complete, 0)(npc_uid);
+                                }
+                            } else if ($choice4 = 1) {
+                                queue(ikov_lucien_quest_complete, 0, 0);
+                            }
+                        } else {
+                            ~mesbox("That quest is already completed!");
+                        }
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 45 : 
+                    if (%desertrescue < ^desertrescue_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(desertrescue_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 46 : 
+                    if (%treequest < ^tree_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(tree_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 47 : 
+                    if (%totemquest < ^totem_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(totem_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 48 : 
+                    if (%upass < ^upass_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(upass_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 49 : 
+                    if (%itwatchtower < ^itwatchtower_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        %itwatchtower = ^itwatchtower_complete;
+                        inv_add(inv, watchtowerspell, 1);
+                        queue(itwatchtower_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 50 : 
+                    if (%waterfall_quest < ^waterfall_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(waterfall_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 51 : 
+                    if (%ballquest < ^ball_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(ball_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 52 : 
+                    if (%elemental_workshop_bits < ^elemental_workshop_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(elemental_workshop_quest_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case 53 : 
+                    if (%priestperil < ^priestperil_complete) {
+                        inv_del(inv, coins, $quest_price);
+                        queue(priestperil_complete, 0, 0);
+                    } else {
+                        ~mesbox("That quest is already completed!");
+                    }
+                case default : mes("Quest not found.");
+            }
+            ~update_questlist;
+        } else {
+            ~mesbox("You don't have enough coins!");
+        }
+    }
+    
+}
