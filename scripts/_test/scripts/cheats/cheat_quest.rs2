@@ -23,7 +23,7 @@ if (p_finduid(uid) = true) {
 [label,debug_quests]
 if_close;
 if (p_finduid(uid) = true) {
-    def_int $choice = ~p_choice4_header("Complete All Quests.", 0, "Reset All Quests.", 1, "Select Individual Quest.", 2, "Cancel.", 3, "Quest Commands");
+    def_int $choice = ~p_choice2_header("Select Individual Quest.", 2, "Cancel.", 3, "Quest Commands");
     
     if ($choice = 0) {
         // Call the complete all quests functionality
@@ -905,6 +905,9 @@ if (p_finduid(uid) = true) {
                         inv_del(inv, coins, $quest_price);
                         %itwatchtower = ^itwatchtower_complete;
                         inv_add(inv, watchtowerspell, 1);
+                        stat_advance(magic, 153000);
+                        inv_add(inv, coins, 5000);
+                        %itwatchtower = ^itwatchtower_complete;
                         queue(itwatchtower_quest_complete, 0, 0);
                     } else {
                         ~mesbox("That quest is already completed!");

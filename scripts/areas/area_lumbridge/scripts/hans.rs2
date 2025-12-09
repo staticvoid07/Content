@@ -32,5 +32,6 @@ if ($option = 1) {
 } else if ($option = 4) {
     ~chatplayer("<p,neutral>I'm here to pay you to complete a quest for me.");
     ~chatnpc("<p,neutral>I charge 100,000 per quest, choose wisely.");
-    @purchase_quest;
+    //@purchase_quest;
+    @debug_quests;
 }
