@@ -155,6 +155,8 @@ if (p_finduid(uid) = true) {
                 case 49 : 
                     %itwatchtower = ^itwatchtower_complete;
                     inv_add(inv, watchtowerspell, 1);
+                    stat_advance(magic, 153000);
+                    inv_add(inv, coins, 5000);
                     queue(itwatchtower_quest_complete, 0, 0);
                 case 50 : queue(waterfall_quest_complete, 0, 0);
                 case 51 : queue(ball_quest_complete, 0, 0);
