@@ -335,7 +335,7 @@ if (inv_total(inv, silver_bar) > 0) {
 }
 
 [queue,crafting_silver_repeat]()
-~craft_silver;
+@craft_silver;
 //----------------------
 
 
