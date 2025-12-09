@@ -5,8 +5,8 @@ if (npc_findhero = ^false) {
     return;
 }
 // Default drop from config.
-inv_add(npc_param(death_drop), 1);
+inv_add(inv, npc_param(death_drop), 1);
 
 // Normal drop
-inv_add(raw_beef, 1);
-inv_add(cow_hide, 1);
+inv_add(inv, raw_beef, 1);
+inv_add(inv, cow_hide, 1);
