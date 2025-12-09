@@ -334,7 +334,7 @@ if (inv_total(inv, silver_bar) > 0) {
     weakqueue*(crafting_silver_repeat, 1)();
 }
 
-[queue,crafting_gold_repeat]()
+[queue,crafting_silver_repeat]()
 ~craft_silver;
 //----------------------
 
