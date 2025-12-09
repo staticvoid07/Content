@@ -503,7 +503,7 @@ if (p_finduid(uid) = true) {
             $page = add($page, 1);
         }
     }
-    def_int $quest_price = 1;
+    def_int $quest_price = 100000;
     def_int $quest = $choice;
     def_int $choice2 = ~p_choice2_header("Complete.", 0, "Cancel.", 2, "<enum(int, string, quest_names_enum, $quest)>");
     if ($choice2 = 2) {

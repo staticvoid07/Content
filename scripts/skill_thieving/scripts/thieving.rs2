@@ -90,7 +90,7 @@ switch_loc (loc_type) {
 ~stealing_check_for_reward($data);
 stat_advance(thieving, $experience);
 // Temp note: dur does not need updated
-loc_change(market, $respawn_ticks);
+//loc_change(market, $respawn_ticks);
 
 [label,activate_trapped_chest]
 p_arrivedelay;
