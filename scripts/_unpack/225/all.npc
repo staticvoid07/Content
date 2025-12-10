@@ -2136,7 +2136,7 @@ param=defend_sound,cow_hit
 param=death_sound,cow_death
 category=cow
 huntmode=no_afk_timer_melee
-huntrange=2
+huntrange=5
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_2790
 
@@ -5555,6 +5555,8 @@ param=attack_sound,cow_attack
 param=defend_sound,cow_hit
 param=death_sound,cow_death
 category=cow
+huntmode=no_afk_timer_melee
+huntrange=5
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_2791
 
@@ -5949,6 +5951,8 @@ param=attack_sound,cow_attack
 param=defend_sound,cow_hit
 param=death_sound,cow_death
 category=cow
+huntmode=no_afk_timer_melee
+huntrange=5
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_2793
 
