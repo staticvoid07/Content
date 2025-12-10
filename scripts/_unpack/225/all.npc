@@ -4644,7 +4644,7 @@ strength=8
 defence=12
 magic=10
 attackrange=8
-huntrange=3
+huntrange=5
 param=damagetype,^crush_style
 huntmode=no_afk_timer_ranged
 // osrs stats and Vislvl match 1:1

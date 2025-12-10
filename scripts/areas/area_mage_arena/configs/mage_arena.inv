@@ -13,10 +13,10 @@ stock3=airrune,200,50
 stock4=earthrune,200,50
 stock5=mindrune,140,50
 stock6=bodyrune,140,50
-stock7=naturerune,250,300
+stock7=naturerune,250,1800
 stock8=chaosrune,250,100
 stock9=lawrune,250,300
-stock10=cosmicrune,20,100
+stock10=cosmicrune,50,100
 stock11=deathrune,250,150
 
 [magearena_staffshop]
