@@ -60,7 +60,7 @@ switch_int (~p_choice4("Who's Saradomin?", 1, "Nice place you've got here.", 2, 
             ~chatnpc("<p,happy>Here you go.");
             inv_add(inv, incinerator_ring, 1);
         } else {
-            ~chatnpc("<p,neutral>No, ask me again when you completed more quests.");
+            ~chatnpc("<p,neutral>No, ask me again when you have completed more quests.");
         }
 }
 
