@@ -7,7 +7,7 @@ switch_int(%prieststart) {
 
 [label,father_aereck_default]
 ~chatnpc("<p,happy>Welcome to the church of holy Saradomin.");
-switch_int (~p_choice3("Who's Saradomin?", 1, "Nice place you've got here.", 2, "I'm looking for a quest!", 3)) {
+switch_int (~p_choice4("Who's Saradomin?", 1, "Nice place you've got here.", 2, "I'm looking for a quest!", 3, "Do you have something special for me?", 4)) {
     case 1 :
         ~chatplayer("<p,quiz>Who's Saradomin?");
         ~chatnpc("<p,shock>Surely you have heard of the god, Saradomin?");
@@ -53,6 +53,14 @@ switch_int (~p_choice3("Who's Saradomin?", 1, "Nice place you've got here.", 2, 
                 ~chatnpc("<p,neutral>Take care travelling through the swamps.|I have heard they can be quite dangerous.");
                 ~chatplayer("<p,happy>I will, thanks.");
             case ^priest_complete : ~chatnpc("<p,happy>Sorry, I only had the one quest.");
+        }
+    case 4 :
+        ~chatplayer("<p,quiz>Do you have something special for me?");
+        if (%qp > -1) {
+            ~chatnpc("<p,happy>Here you go.");
+            inv_add(inv, incinerator_ring, 1);
+        } else {
+            ~chatnpc("<p,neutral>No, ask me again when you completed more quests.");
         }
 }
 

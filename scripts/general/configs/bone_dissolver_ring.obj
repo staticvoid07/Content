@@ -1,0 +1,13 @@
+[incinerator_ring]
+name=Incinerator ring
+desc=A ring that burns bones.
+cost=1
+model=model_2784_obj
+2dyof=-3
+2dzoom=930
+2dyan=1936
+2dxan=120
+weight=3g
+tradeable=no
+iop2=Wield
+wearpos=ring
