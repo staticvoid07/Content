@@ -56,7 +56,7 @@ switch_int (~p_choice4("Who's Saradomin?", 1, "Nice place you've got here.", 2, 
         }
     case 4 :
         ~chatplayer("<p,quiz>Do you have something special for me?");
-        if (%qp > 100) {
+        if (%qp > 99) {
             ~chatnpc("<p,happy>Here you go.");
             inv_add(inv, incinerator_ring, 1);
         } else {

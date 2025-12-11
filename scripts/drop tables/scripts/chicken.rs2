@@ -11,12 +11,12 @@ obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 gosub(trail_checkmediumdrop);
 
 // Normal drop
-inv_add(inv, raw_chicken, 1);
+obj_add(npc_coord, raw_chicken, 1, ^lootdrop_duration);
 
 // Other
 def_int $rng = random(128);
 if ($rng < 32) {
-    inv_add(inv, feather, 15);
+    obj_add(npc_coord, feather, 15, ^lootdrop_duration);
 } else if ($rng < 64) {
-    inv_add(inv, feather, 5);
+    obj_add(npc_coord, feather, 5, ^lootdrop_duration);
 }

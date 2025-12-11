@@ -9,45 +9,45 @@ obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 def_int $random = random(128);
 
 if ($random < 3) {
-    inv_add(inv, steel_axe, 1);
+    obj_add(npc_coord, steel_axe, 1, ^lootdrop_duration);
 } else if ($random < 5) {
-    inv_add(inv, mithril_sq_shield, 1);
+    obj_add(npc_coord, mithril_sq_shield, 1, ^lootdrop_duration);
 } else if ($random < 6) {
-    inv_add(inv, fire_battlestaff, 1);
+    obj_add(npc_coord, fire_battlestaff, 1, ^lootdrop_duration);
 } else if ($random < 7) {
-    inv_add(inv, rune_scimitar, 1);
+    obj_add(npc_coord, rune_scimitar, 1, ^lootdrop_duration);
 } else if ($random < 17) {
-    inv_add(inv, firerune, 150);
+    obj_add(npc_coord, firerune, 150, ^lootdrop_duration);
 } else if ($random < 24) {
-    inv_add(inv, chaosrune, 5);
+    obj_add(npc_coord, chaosrune, 5, ^lootdrop_duration);
 } else if ($random < 29) {
-    inv_add(inv, rune_arrow, 12);
+    obj_add(npc_coord, rune_arrow, 12, ^lootdrop_duration);
 } else if ($random < 33) {
-    inv_add(inv, bloodrune, 5);
+    obj_add(npc_coord, bloodrune, 5, ^lootdrop_duration);
 } else if ($random < 34) {
-    inv_add(inv, firerune, 37);
+    obj_add(npc_coord, firerune, 37, ^lootdrop_duration);
 } else if ($random < 35) {
-    inv_add(inv, lawrune, 2);
+    obj_add(npc_coord, lawrune, 2, ^lootdrop_duration);
 } else if ($random < 54) {
-    inv_add(inv, ~randomherb);
+    obj_add(npc_coord, ~randomherb, ^lootdrop_duration);
 } else if ($random < 94) {
-    inv_add(inv, coins, 60);
+    obj_add(npc_coord, coins, 60, ^lootdrop_duration);
 } else if ($random < 101) {
-    inv_add(inv, coins, 15);
+    obj_add(npc_coord, coins, 15, ^lootdrop_duration);
 } else if ($random < 107) {
-    inv_add(inv, coins, 25);
+    obj_add(npc_coord, coins, 25, ^lootdrop_duration);
 } else if ($random < 109) {
-    inv_add(inv, coins, 300);
+    obj_add(npc_coord, coins, 300, ^lootdrop_duration);
 } else if ($random < 110) {
-    inv_add(inv, coins, 50);
+    obj_add(npc_coord, coins, 50, ^lootdrop_duration);
 } else if ($random < 113) {
-    inv_add(inv, lobster, 1);
+    obj_add(npc_coord, lobster, 1, ^lootdrop_duration);
 } else if ($random < 115) {
-    inv_add(inv, steel_bar, 1);
+    obj_add(npc_coord, steel_bar, 1, ^lootdrop_duration);
 } else if ($random < 116) {
-    inv_add(inv, 2dose1strength, 1);
+    obj_add(npc_coord, 2dose1strength, 1, ^lootdrop_duration);
 } else if ($random < 127) {
-    inv_add(inv, ~randomjewel);
+    obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
 } else if ($random <  128) {
-    inv_add(inv, ~ultrarare_getitem);
+    obj_add(npc_coord, ~ultrarare_getitem, ^lootdrop_duration);
 }
