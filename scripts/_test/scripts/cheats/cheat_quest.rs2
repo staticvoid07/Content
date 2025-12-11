@@ -609,6 +609,7 @@ if (p_finduid(uid) = true) {
                 case 13 : 
                     if (%runemysteries < ^runemysteries_complete) {
                         inv_del(inv, coins, $quest_price);
+                        inv_add(inv, air_talisman, 1);
                         queue(rune_mysteries_complete, 0, 0);
                     } else {
                         ~mesbox("That quest is already completed!");

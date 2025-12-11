@@ -3047,8 +3047,8 @@ param=attack_sound,giant_attack
 param=defend_sound,giant_hit
 param=death_sound,giant_death
 param=death_drop,big_bones
-huntmode=cowardly
-huntrange=2
+huntmode=no_afk_timer_melee
+huntrange=5
 // Stats match osrs version but our version Vislvl is different.
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_2078
 
@@ -4637,7 +4637,7 @@ model4=model_292_idk
 model5=model_170_idk
 model6=model_176_idk
 model7=model_260_npc
-respawnrate=50
+respawnrate=5
 hitpoints=20
 attack=8
 strength=8

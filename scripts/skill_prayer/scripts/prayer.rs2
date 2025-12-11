@@ -167,15 +167,16 @@ if (~prayers_are_active = false) {
     cleartimer(prayer_drain);
     return;
 }
+// remove prayer drain
 // not sure if drain resistance drops below 60.
-if (%prayer_drain_counter >= max(%prayer_drain_resistance, 60)) {
-    def_int $reduce_points = divide(%prayer_drain_counter, %prayer_drain_resistance);
-    %prayer_drain_counter = sub(%prayer_drain_counter, multiply(%prayer_drain_resistance, $reduce_points));
-    stat_sub(prayer, $reduce_points, 0);
-    if (stat(prayer) = 0) {
-        sound_synth(prayer_drain, 0, 0);
-        mes("You have run out of prayer points, you must recharge at an altar.");
-        ~prayer_deactivate_all;
-        return;
-    }
-}
+// if (%prayer_drain_counter >= max(%prayer_drain_resistance, 60)) {
+//     def_int $reduce_points = divide(%prayer_drain_counter, %prayer_drain_resistance);
+//     %prayer_drain_counter = sub(%prayer_drain_counter, multiply(%prayer_drain_resistance, $reduce_points));
+//     stat_sub(prayer, $reduce_points, 0);
+//     if (stat(prayer) = 0) {
+//         sound_synth(prayer_drain, 0, 0);
+//         mes("You have run out of prayer points, you must recharge at an altar.");
+//         ~prayer_deactivate_all;
+//         return;
+//     }
+//}
