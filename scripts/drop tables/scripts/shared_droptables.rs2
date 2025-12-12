@@ -33,6 +33,42 @@ if ($random < 32) {
     return (unidentified_dwarf_weed, 1);
 }
 
+[proc,randomsecondary]()(namedobj, int)
+
+if(map_members = ^false) {
+    return (coins, 10);
+}
+
+def_int $random = 0;
+
+$random = random(128);
+
+if ($random < 31) {
+    return (eye_of_newt, 1);
+} else if ($random < 55) {
+    return (unicorn_horn, 1);
+} else if ($random < 73) {
+    return (limpwurt_root, 1);
+} else if ($random < 87) {
+    return (chocolate_dust, 1);
+} else if ($random < 98) {
+    return (snape_grass, 1);
+} else if ($random < 106) {
+    return (toads_legs, 1);
+} else if ($random < 112) {
+    return (mortmyremushroom, 1);
+} else if ($random < 117) {
+    return (red_spiders_eggs, 1);
+} else if ($random < 121) {
+    return (white_berries, 1);
+} else if ($random < 124) {
+    return (cactus_potato, 1);
+} else if ($random < 127) {
+    return (wine_of_zamorak, 1);
+} else if ($random < 128) {
+    return (jangerberries, 1);
+}
+
 // Name leaked
 [proc,randomjewel]()(namedobj, int)
 def_int $random = 0;

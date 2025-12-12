@@ -1079,7 +1079,7 @@ readyanim=chicken_ready
 op2=Attack
 vislevel=1
 model1=model_2849_npc
-respawnrate=50
+respawnrate=5
 hitpoints=3
 param=attackbonus,-47
 param=strengthbonus,-42
@@ -1098,7 +1098,7 @@ param=death_sound,chicken_death
 param=retreat,1
 category=chicken
 huntmode=no_afk_timer_melee
-huntrange=2
+huntrange=5
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_1173
 
@@ -1351,7 +1351,7 @@ model1=model_2998_npc
 // todo: proof
 wanderrange=4
 maxrange=6
-respawnrate=60
+respawnrate=5
 hitpoints=50
 attack=40
 strength=40
@@ -1369,8 +1369,8 @@ param=attack_sound,babydragon_attack
 param=defend_sound,babydragon_hit
 param=death_sound,babydragon_death
 param=death_drop,babydragon_bones
-huntmode=cowardly
-huntrange=2
+huntmode=no_afk_timer_melee
+huntrange=5
 // https://oldschool.runescape.wiki/w/Baby_dragon_(unused)
 // all data taken Baby blue dragon.
 
@@ -1387,7 +1387,7 @@ recol1d=4335
 model1=model_2998_npc
 wanderrange=4
 maxrange=6
-respawnrate=60
+respawnrate=5
 hitpoints=50
 attack=40
 strength=40
@@ -1405,8 +1405,8 @@ param=attack_sound,babydragon_attack
 param=defend_sound,babydragon_hit
 param=death_sound,babydragon_death
 param=death_drop,babydragon_bones
-huntmode=cowardly
-huntrange=2
+huntmode=no_afk_timer_melee
+huntrange=5
 // Stats match osrs version but our version Vislvl is different.
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_241
 
@@ -1424,7 +1424,7 @@ model1=model_2853_npc
 model2=model_2854_npc
 wanderrange=10
 maxrange=12
-respawnrate=60
+respawnrate=5
 hitpoints=140
 attack=130
 strength=130
@@ -1442,8 +1442,8 @@ param=attack_sound,dragon_attack
 param=defend_sound,dragon_hit
 param=death_sound,dragon_death
 param=death_drop,dragon_bones
-huntmode=cowardly
-huntrange=4
+huntmode=no_afk_timer_melee
+huntrange=5
 // Stats match osrs version but our version Vislvl is different.
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_249
 
@@ -1461,7 +1461,7 @@ model1=model_2853_npc
 model2=model_2854_npc
 wanderrange=10
 maxrange=12
-respawnrate=60
+respawnrate=5
 hitpoints=190
 attack=200
 strength=200
@@ -1480,8 +1480,8 @@ param=attack_sound,dragon_attack
 param=defend_sound,dragon_hit
 param=death_sound,dragon_death
 param=death_drop,dragon_bones
-huntmode=cowardly
-huntrange=4
+huntmode=no_afk_timer_melee
+huntrange=5
 // Stats match osrs version but our version Vislvl is different.
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_252
 
@@ -1499,7 +1499,7 @@ model1=model_2853_npc
 model2=model_2854_npc
 wanderrange=4
 maxrange=6
-respawnrate=60
+respawnrate=5
 hitpoints=105
 attack=95
 strength=95
@@ -1517,8 +1517,8 @@ param=attack_sound,dragon_attack
 param=defend_sound,dragon_hit
 param=death_sound,dragon_death
 param=death_drop,dragon_bones
-huntmode=cowardly
-huntrange=4
+huntmode=no_afk_timer_melee
+huntrange=5
 // Stats match osrs version but our version Vislvl is different.
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_265
 
@@ -2118,7 +2118,7 @@ vislevel=2
 model1=model_3341_npc
 model2=model_3342_npc
 timer=25
-respawnrate=90
+respawnrate=5
 hitpoints=8
 param=attackbonus,-15
 param=strengthbonus,-15
@@ -3029,7 +3029,7 @@ model1=model_2870_npc
 model2=model_2864_npc
 wanderrange=3
 maxrange=5
-respawnrate=60
+respawnrate=5
 hitpoints=111
 attack=65
 strength=65
@@ -3066,7 +3066,7 @@ model1=model_2870_npc
 model2=model_2868_npc
 //wanderrange=3
 //maxrange=5
-respawnrate=60
+respawnrate=5
 hitpoints=70
 attack=40
 strength=40
@@ -3084,8 +3084,8 @@ param=attack_sound,giant_attack
 param=defend_sound,giant_hit
 param=death_sound,giant_death
 param=death_drop,big_bones
-huntmode=cowardly
-huntrange=2
+huntmode=no_afk_timer_melee
+huntrange=5
 // Stats match osrs version but our version Vislvl is different.
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_2085
 
@@ -3105,7 +3105,7 @@ model1=model_2870_npc
 model2=model_2865_npc
 wanderrange=3
 maxrange=5
-respawnrate=60
+respawnrate=5
 hitpoints=60
 attack=30
 strength=30
@@ -3121,8 +3121,8 @@ param=attack_sound,giant_attack
 param=defend_sound,giant_hit
 param=death_sound,giant_death
 param=death_drop,big_bones
-huntmode=cowardly
-huntrange=2
+huntmode=no_afk_timer_melee
+huntrange=5
 // Stats match osrs version but our version Vislvl is different.
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_2090
 
@@ -3207,7 +3207,7 @@ model1=model_2870_npc
 model2=model_2862_npc
 wanderrange=3
 maxrange=5
-respawnrate=60
+respawnrate=5
 hitpoints=35
 attack=18
 strength=22
@@ -3223,8 +3223,8 @@ param=attack_sound,giant_attack
 param=defend_sound,giant_hit
 param=death_sound,giant_death
 param=death_drop,big_bones
-huntmode=cowardly
-huntrange=2
+huntmode=no_afk_timer_melee
+huntrange=5
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_2098
 
@@ -4277,7 +4277,7 @@ wanderrange=3
 maxrange=5
 attackrange=5
 huntrange=5
-respawnrate=100
+respawnrate=5
 hitpoints=24
 attack=17
 strength=17
@@ -4285,7 +4285,8 @@ defence=14
 magic=22
 param=magicdefence,3
 param=damagetype,^crush_style
-huntmode=ranged
+huntmode=no_afk_timer_ranged
+huntrange=5
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_510
 
@@ -4343,7 +4344,7 @@ model7=model_265_obj_wear
 wanderrange=3
 maxrange=5
 attackrange=5
-respawnrate=100
+respawnrate=5
 hitpoints=12
 attack=5
 strength=2
@@ -4351,8 +4352,8 @@ defence=5
 magic=6
 param=magicdefence,3
 param=damagetype,^crush_style
-huntmode=ranged
-huntrange=3
+huntmode=no_afk_timer_ranged
+huntrange=5
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_512
 

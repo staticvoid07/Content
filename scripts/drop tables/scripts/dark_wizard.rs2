@@ -68,6 +68,11 @@ if ($random < 4) {
     obj_add(npc_coord, water_talisman, 1, ^lootdrop_duration);
 } else if ($random < 112) {
     obj_add(npc_coord, fire_talisman, 1, ^lootdrop_duration);
+} else if ($random < 123) {
+    obj_add(npc_coord, ~randomsecondary, ^lootdrop_duration);
+} else if ($random < 128) {
+    obj_add(npc_coord, ~randomsecondary, ^lootdrop_duration);
+    obj_add(npc_coord, ~randomsecondary, ^lootdrop_duration);
 }
 
 [ai_queue3,young_dark_wizard] // Level 7
@@ -140,4 +145,9 @@ if ($random < 8) {
     obj_add(npc_coord, water_talisman, 1, ^lootdrop_duration);
 } else if ($random < 112) {
     obj_add(npc_coord, fire_talisman, 1, ^lootdrop_duration);
+} else if ($random < 123) {
+    obj_add(npc_coord, ~randomsecondary, ^lootdrop_duration);
+} else if ($random < 128) {
+    obj_add(npc_coord, ~randomsecondary, ^lootdrop_duration);
+    obj_add(npc_coord, ~randomsecondary, ^lootdrop_duration);
 }
