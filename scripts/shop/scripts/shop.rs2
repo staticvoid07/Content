@@ -67,41 +67,66 @@ def_int $shop_stock = calc(inv_total(%shop, $obj));
 def_int $space_overflow = inv_itemspace2(inv, $obj, $amount, inv_size(inv));
 def_int $total_cost = 0;
 // Since pricing and stock will change constantly we will have to iterate here to calc
-while($i < $amount) {
-    //def_int $added_amt = ~adjusted_item_cost_buying($obj, calc($shop_stock - $i));
+// while($i < $amount) {
+//     //def_int $added_amt = ~adjusted_item_cost_buying($obj, calc($shop_stock - $i));
 
-    // don't change prices
-    def_int $added_amt = ~adjusted_item_cost_buying($obj, $shop_stock);
+//     // don't change prices
+//     def_int $added_amt = ~adjusted_item_cost_buying($obj, $shop_stock);
 
-    def_int $current_stock = calc($shop_stock - $i);
-    if(calc($total_cost + $added_amt) > $current_gp) {
-        if ($i > 0) {
-            wealth_event(^wealth_shop_buy, oc_debugname($obj), $i, $total_cost);
-        }
-        mes("You don't have enough coins.");
-        return;
-    }
-    if($current_stock <= 0) {
-        if ($i > 0) {
-            wealth_event(^wealth_shop_buy, oc_debugname($obj), $i, $total_cost);
-        }
-        mes("The shop has run out of stock.");
-        return;
-    }
-    // do calc($total_cost + $added_amt) ! $current_gp for the case where the exact gp required for the purchase
-    // is used. Not sure if this should be the case in 2004
-    if($space_overflow >= calc($amount - $i) & calc($total_cost + $added_amt) ! $current_gp) {
-        if ($i > 0) {
-            wealth_event(^wealth_shop_buy, oc_debugname($obj), $i, $total_cost);
-        }
-        mes("You don't have enough inventory space.");
-        return;
-    }
-    $total_cost = calc($total_cost + $added_amt);
-    inv_del(inv, coins, $added_amt);
-    inv_moveitem_uncert(%shop, inv, $obj, 1);
-    $i = calc($i + 1);
+//     def_int $current_stock = calc($shop_stock - $i);
+//     if(calc($total_cost + $added_amt) > $current_gp) {
+//         if ($i > 0) {
+//             wealth_event(^wealth_shop_buy, oc_debugname($obj), $i, $total_cost);
+//         }
+//         mes("You don't have enough coins.");
+//         return;
+//     }
+//     if($current_stock <= 0) {
+//         if ($i > 0) {
+//             wealth_event(^wealth_shop_buy, oc_debugname($obj), $i, $total_cost);
+//         }
+//         mes("The shop has run out of stock.");
+//         return;
+//     }
+//     // do calc($total_cost + $added_amt) ! $current_gp for the case where the exact gp required for the purchase
+//     // is used. Not sure if this should be the case in 2004
+//     if($space_overflow >= calc($amount - $i) & calc($total_cost + $added_amt) ! $current_gp) {
+//         if ($i > 0) {
+//             wealth_event(^wealth_shop_buy, oc_debugname($obj), $i, $total_cost);
+//         }
+//         mes("You don't have enough inventory space.");
+//         return;
+//     }
+//     $total_cost = calc($total_cost + $added_amt);
+//     inv_del(inv, coins, $added_amt);
+//     inv_moveitem_uncert(%shop, inv, $obj, 1);
+//     $i = calc($i + 1);
+// }
+if ($amount > $shop_stock) {
+    $amount = $shop_stock;
 }
+
+$total_cost = calc(~adjusted_item_cost_buying($obj, $shop_stock) * $amount);
+
+if(calc($total_cost) > $current_gp) {
+    mes("You don't have enough coins.");
+    return;
+}
+
+if($shop_stock <= 0) {
+    mes("The shop has run out of stock.");
+    return;
+}
+
+if($space_overflow >= calc($amount) & calc($total_cost + $amount) ! $current_gp) {
+    mes("You don't have enough inventory space.");
+    return;
+}
+
+inv_del(inv, coins, $total_cost);
+inv_moveitem_uncert(%shop, inv, $obj, $amount);
+
+
 wealth_event(^wealth_shop_buy, oc_debugname($obj), $i, $total_cost);
 
 // Sell an item to the shop
@@ -123,16 +148,17 @@ if(inv_itemspace(%shop, oc_uncert($obj), $sell_amount, inv_size(%shop)) = false)
     return;
 }
 // Iteration to calc the total value of the sale
-def_int $i = 0;
-while($i < $sell_amount) {
-    //def_int $added_amt = ~adjusted_item_cost_selling(oc_uncert($obj), calc($shop_total + $i));
+// def_int $i = 0;
+// while($i < $sell_amount) {
+//     //def_int $added_amt = ~adjusted_item_cost_selling(oc_uncert($obj), calc($shop_total + $i));
 
-    // don't change prices
-    def_int $added_amt = ~adjusted_item_cost_selling(oc_uncert($obj), $shop_total);
+//     // don't change prices
+//     def_int $added_amt = ~adjusted_item_cost_selling(oc_uncert($obj), $shop_total);
 
-    $total_value = calc($total_value + $added_amt);
-    $i = calc($i + 1);
-}
+//     $total_value = calc($total_value + $added_amt);
+//     $i = calc($i + 1);
+// }
+$total_value = calc(~adjusted_item_cost_selling(oc_uncert($obj), $shop_total) * $sell_amount);
 // now perform the transaction 
 // delete the item from the player's inventory without adding it to the shop's inventory
 inv_del(inv, $obj, $sell_amount);
@@ -176,12 +202,13 @@ return ($sell_amount);
 [inv_button2,shop_template_side:inv] @shop_request(inv, last_slot, 1);
 [inv_button3,shop_template_side:inv] @shop_request(inv, last_slot, 5);
 [inv_button4,shop_template_side:inv] @shop_request(inv, last_slot, 10);
+[inv_button5,shop_template_side:inv] @shop_request(inv, last_slot, 5000);
 
 // Buy buttons
 [inv_button2,shop_template:inv] @shop_request(%shop, last_slot, 1);
 [inv_button3,shop_template:inv] @shop_request(%shop, last_slot, 5);
 [inv_button4,shop_template:inv] @shop_request(%shop, last_slot, 10);
-[inv_button5,shop_template:inv] @shop_request(%shop, last_slot, 50);
+[inv_button5,shop_template:inv] @shop_request(%shop, last_slot, 250);
 
 // verify a request to buy or sell from a shop, and then perform the transaction if all passed
 [label,shop_request](inv $shop_inv, int $slot, int $amount)
