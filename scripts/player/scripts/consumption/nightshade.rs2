@@ -1,5 +1,5 @@
 [opheld2,nightshade]
-inv_delslot(inv, last_slot);
+inv_del(inv, inv_getobj(inv, last_slot), 1);
 mes("You eat the nightshade...");
 mes("The nightshade was highly poisonous.");
 queue(damage_player, 0, 15);

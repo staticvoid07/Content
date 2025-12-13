@@ -2,6 +2,6 @@
 %ring_of_recoil = add(max(%ring_of_recoil, 0), $recoil_damage);
 if (%ring_of_recoil >= 40) {
     %ring_of_recoil = 0;
-    inv_delslot(worn, ^wearpos_ring);
+    inv_del(worn, inv_getobj(worn, ^wearpos_ring), 1);
     mes("Your Ring of Recoil has shattered.");
 }

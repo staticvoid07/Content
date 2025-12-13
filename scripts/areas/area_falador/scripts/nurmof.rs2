@@ -42,7 +42,7 @@ if (oc_param($item, to_be_fixed_by_nurmof) = ^true) { // dialogue is guessed and
     def_int $option = ~p_choice2("Yes, please.", 1, "No, thank you.", 2);
     if ($option = 1) {
         if ($cost = 0) {
-            inv_delslot(inv, $slot);
+            inv_del(inv, inv_getobj(inv, $slot), 1);
             inv_add(inv, oc_param($item, fixed), 1);
             mes("Nurmof fixes your pickaxe for free!"); // guess
             return;
@@ -52,7 +52,7 @@ if (oc_param($item, to_be_fixed_by_nurmof) = ^true) { // dialogue is guessed and
             return;
         }
         // fix pickaxe
-        inv_delslot(inv, $slot);
+        inv_del(inv, inv_getobj(inv, $slot), 1);
         inv_del(inv, coins, $cost);
         inv_add(inv, oc_param($item, fixed), 1);
         mes("Nurmof fixes your pickaxe for <tostring($cost)>gp"); // no period in the dialogue

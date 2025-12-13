@@ -5,7 +5,7 @@ if (p_finduid(uid) = true) {
     }
     if (stat(hitpoints) <= scale(10, 100, stat_base(hitpoints))) {
         mes("Your Ring of Life saves you and is destroyed in the process.");
-        inv_delslot(worn, ^wearpos_ring);
+        inv_del(worn, inv_getobj(worn, ^wearpos_ring), 1);
         ~player_teleport_normal(map_findsquare(0_50_50_21_18, 0, 2, ^map_findsquare_lineofwalk));
     }
 }

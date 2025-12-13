@@ -181,9 +181,9 @@ while ($consumable = null & $slot < inv_size(inv)) {
 if($consumable = null) { // shouldnt hit this!
     return (false); 
 }
-inv_delslot(inv, $slot);
+inv_del(inv, inv_getobj(inv, last_slot), 1);
 if (oc_category($consumable) = category_129) {
-    inv_setslot(inv, $slot, piedish, 1);
+    inv_add(inv, piedish, 1);
 }
 inv_add(inv, rotten_food, 1);
 mes("You feel something attacking your backpack, and smell a terrible stench.");

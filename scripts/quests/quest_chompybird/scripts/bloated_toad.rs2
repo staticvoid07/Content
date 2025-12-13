@@ -17,7 +17,7 @@ if($count = 1) {
 
 [opheld5,bloated_toad]
 // release
-inv_delslot(inv, last_slot);
+inv_del(inv, inv_getobj(inv, last_slot), 1);
 ~release_toad;
 if(random(5) = 0) say("Free the fatsy toady!");
 mes("You release the toad and see it hop off into the distance.");
