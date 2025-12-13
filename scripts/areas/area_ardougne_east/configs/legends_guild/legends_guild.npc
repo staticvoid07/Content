@@ -27,7 +27,7 @@ model6=model_184_npc
 model7=model_550_obj_wear
 wanderrange=4
 maxrange=6
-respawnrate=60
+respawnrate=5
 hitpoints=67
 attack=36
 strength=33
@@ -47,8 +47,8 @@ param=defend_anim,human_trans_axe_def
 param=death_anim,human_transdeath
 param=attack_sound,baxe_slash
 param=defend_sound,steel
-huntmode=cowardly
-huntrange=1
+huntmode=no_afk_timer_melee
+huntrange=5
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_2853
 
