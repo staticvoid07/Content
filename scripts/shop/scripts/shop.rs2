@@ -108,6 +108,15 @@ if ($amount > $shop_stock) {
 
 $total_cost = calc(~adjusted_item_cost_buying($obj, $shop_stock) * $amount);
 
+if (calc($total_cost) > $current_gp) {
+    $amount = calc($current_gp / ~adjusted_item_cost_buying($obj, $shop_stock));
+    if ($amount = 0) {
+        mes("You don't have enough coins.");
+        return;
+    }
+    $total_cost = calc(~adjusted_item_cost_buying($obj, $shop_stock) * $amount);
+}
+
 if(calc($total_cost) > $current_gp) {
     mes("You don't have enough coins.");
     return;
