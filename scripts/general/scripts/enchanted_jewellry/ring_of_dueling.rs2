@@ -21,6 +21,6 @@ if ($new_ring = null) {
     mes("Your Ring of Dueling crumbles to dust.");
 } else {
     inv_del(inv, $item, 1);
-    inv_add(inv, $new_ring, 1)
+    inv_add(inv, $new_ring, 1);
     mes("Your Ring of Dueling has <~pluralise(oc_param($new_ring, charges), "use")> left.");
 }
