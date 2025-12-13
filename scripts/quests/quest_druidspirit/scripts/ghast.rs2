@@ -181,7 +181,7 @@ while ($consumable = null & $slot < inv_size(inv)) {
 if($consumable = null) { // shouldnt hit this!
     return (false); 
 }
-inv_del(inv, inv_getobj(inv, last_slot), 1);
+inv_del(inv, inv_getobj(inv, $slot), 1);
 if (oc_category($consumable) = category_129) {
     inv_add(inv, piedish, 1);
 }
