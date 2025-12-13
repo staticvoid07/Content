@@ -32,4 +32,6 @@ switch_int($choice) {
     case 3 : ~player_teleport_normal(0_48_50_33_51);
     case 4 : ~player_teleport_normal(0_51_49_29_27);
 }
-inv_setslot(inv, $slot, oc_param($item, next_obj_stage), 1);
+//inv_setslot(inv, $slot, oc_param($item, next_obj_stage), 1);
+inv_del(inv, $item, 1);
+inv_add(inv, oc_param($item, next_obj_stage), 1);
