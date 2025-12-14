@@ -938,8 +938,9 @@ if (p_finduid(uid) = true) {
                     }
                 case 53 : 
                     if (%priestperil < ^priestperil_complete) {
-                        inv_del(inv, coins, $quest_price);
-                        queue(priestperil_complete, 0, 0);
+                        ~mesbox("This quest is not available at the moment.");
+                        //inv_del(inv, coins, $quest_price);
+                        //queue(priestperil_complete, 0, 0);
                     } else {
                         ~mesbox("That quest is already completed!");
                     }
