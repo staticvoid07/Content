@@ -54,6 +54,8 @@ switch_obj (last_useitem)
 };
 
 [label,water_fill](int $use_slot, int $last_slot)
+mes("You are too dumb to figure out how to do this");
+return;
 def_obj $used_on = inv_getobj(inv, $last_slot);
 def_obj $used_with = inv_getobj(inv, $use_slot);
 

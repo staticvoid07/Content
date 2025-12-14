@@ -5,7 +5,9 @@ def_obj $consumable = last_item;
 %poison = min(%poison,-5);
 ~set_poison_timer;
 // change item to its next stage. default is null
-inv_setslot(inv, last_slot, oc_param($consumable, next_obj_stage), 1);
+// inv_setslot(inv, last_slot, oc_param($consumable, next_obj_stage), 1);
+inv_del(inv, inv_getobj(inv, last_slot), 1);
+inv_add(inv, oc_param($consumable, next_obj_stage), 1);
 ~consume_effect_messages($consumable, stat(hitpoints), false);
 
 [label,consume_effect_super_antipoison]
@@ -15,6 +17,8 @@ def_obj $consumable = last_item;
 %poison = min(%poison,-20);
 ~set_poison_timer;
 // change item to its next stage. default is null
-inv_setslot(inv, last_slot, oc_param($consumable, next_obj_stage), 1);
+// inv_setslot(inv, last_slot, oc_param($consumable, next_obj_stage), 1);
+inv_del(inv, inv_getobj(inv, last_slot), 1);
+inv_add(inv, oc_param($consumable, next_obj_stage), 1);
 ~consume_effect_messages($consumable, stat(hitpoints), false);
 

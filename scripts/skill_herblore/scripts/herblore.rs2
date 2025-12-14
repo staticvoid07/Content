@@ -34,7 +34,9 @@ if (inv_total(inv, $ingredient) > 0 & inv_total(inv, $solvent) > 0) {
 
 /** Grind a herblore ingredient. */
 [proc,grind_ingredient](obj $grindable, namedobj $refined, string $message, int $slot)
-inv_setslot(inv, $slot, $refined, 1);
+inv_del(inv, $grindable, 1);
+inv_add(inv, $refined, 1);
+// inv_setslot(inv, $slot, $refined, 1);
 // https://youtu.be/QUWaqEBTrCE?t=107
 mes($message);
 anim(human_herbing_grind, 0);

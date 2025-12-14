@@ -50,7 +50,8 @@ if (oc_category($weapon) = weapon_javelin) { // javelins inv_add poisoned wep, b
     def_int $wep_count = min(inv_total(inv, $weapon), 5);
     inv_del(inv, $weapon, $wep_count);
     inv_add(inv, oc_param($weapon, weapon_poisoned), $wep_count);
-    inv_setslot(inv, $poison_slot, vial_empty, 1);
+    inv_del(inv, inv_getobj(inv, $poison_slot), 1);
+    inv_add(inv, vial_empty, 1);
 } else if (oc_category($weapon) = weapon_spear) {
     inv_del(inv, inv_getobj(inv, $poison_slot), 1);
     inv_add(inv, vial_empty, 1);
@@ -64,8 +65,12 @@ if (oc_category($weapon) = weapon_javelin) { // javelins inv_add poisoned wep, b
     inv_add(inv, oc_param($weapon, weapon_poisoned), $wep_count);
 } else {
     // non stackables uses setslot (except spears)
-    inv_setslot(inv, $weapon_slot, oc_param($weapon, weapon_poisoned), 1);
-    inv_setslot(inv, $poison_slot, vial_empty, 1);
+    // inv_setslot(inv, $weapon_slot, oc_param($weapon, weapon_poisoned), 1);
+    // inv_setslot(inv, $poison_slot, vial_empty, 1);
+    inv_del(inv, inv_getobj(inv, $poison_slot), 1);
+    inv_add(inv, vial_empty, 1);
+    inv_del(inv, $weapon, 1);
+    inv_add(inv, oc_param($weapon, weapon_poisoned), 1);
 }
 
 mes(oc_param($weapon, weapon_poisoned_message));

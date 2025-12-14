@@ -114,5 +114,7 @@ jump($consume_effect);
 
 // vials dont even use this yet. Pies and odd cocktails have an empty option with their own scuffed messages
 [label,player_empty_item]
-inv_setslot(inv, last_slot, oc_param(last_item, next_obj_stage), 1);
+// inv_setslot(inv, last_slot, oc_param(last_item, next_obj_stage), 1);
+inv_del(inv, inv_getobj(inv, last_slot), 1);
+inv_add(inv, oc_param($last_item, next_obj_stage), 1);
 mes("You empty the <oc_name(oc_param(last_item, next_obj_stage))>.");
