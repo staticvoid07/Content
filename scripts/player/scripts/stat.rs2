@@ -48,7 +48,14 @@ while ($i <= enum_getoutputcount(stats)) {
     def_stat $stat = enum(int, stat, stats, $i);
     def_int $base_level = stat_base($stat);
     def_int $level = stat($stat);
-    if ($base_level < $level & $stat ! prayer & $stat ! hitpoints) {
+    if ($base_level < $level 
+    & $stat ! prayer 
+    & $stat ! hitpoints 
+    & $stat ! attack 
+    & $stat ! strength
+    & $stat ! defence
+    & $stat ! ranged
+    & $stat ! magic) {
         stat_sub($stat, 1, 0);
     }
 
