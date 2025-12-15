@@ -98,9 +98,9 @@ def_int $total_cost = 0;
 //     inv_moveitem_uncert(%shop, inv, $obj, 1);
 //     $i = calc($i + 1);
 // }
-if ($amount > $shop_stock) {
-    $amount = $shop_stock;
-}
+// if ($amount > $shop_stock) {
+//     $amount = $shop_stock;
+// }
 
 $total_cost = calc(~adjusted_item_cost_buying($obj, $shop_stock) * $amount);
 
