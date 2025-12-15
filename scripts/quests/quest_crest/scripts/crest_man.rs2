@@ -102,6 +102,7 @@ inv_add(inv, caleb_crest, 1);
 
 [label,avan_gauntlets]
 ~chatnpc("<p,happy>I have received word from my father of your assistance to our family in this matter. You have my thanks for restoring our honour.");
+inv_add(inv, gauntlets_of_goldsmithing, 1);
 if(getbit_range(%crest_spells_levers_gauntlets, ^crest_cooking_gauntlets_chosen, ^crest_chaos_gauntlets_chosen) > 0) {
     return;
 }

@@ -98,6 +98,7 @@ else {
 
 [label,johnathon_fitzharmon_gauntlets]
 ~chatnpc("<p,neutral>Hello again. My family now considers you a hero.");
+inv_add(inv, gauntlets_of_chaos, 1);
 if(getbit_range(%crest_spells_levers_gauntlets, ^crest_cooking_gauntlets_chosen, ^crest_chaos_gauntlets_chosen) > 0) {
     return;
 }

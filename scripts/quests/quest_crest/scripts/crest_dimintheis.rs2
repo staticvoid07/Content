@@ -123,6 +123,7 @@ switch_obj($gauntlets) {
     case gauntlets_of_chaos :
         $gauntlets_name = "chaos gauntlets";
 }
+inv_add(inv, steel_gauntlets, 1);
 if(inv_freespace(inv) = 0) {
     ~chatnpc("<p,happy>Your <$gauntlets_name> returned to me through their magic power recently. Clear some space and you can have them back."); 
 }
