@@ -36,8 +36,8 @@ restock=yes
 stackall=yes
 allstock=no
 stock1=nostringstar,2,100
-stock2=silver_ore,1,2000
-stock3=silver_bar,1,1000
+stock2=silver_ore,250,2000
+stock3=silver_bar,250,1000
 //This information has been confirmed via rsproxy
 //that some accounts are using the ardougne silver merchant shop id 55 or 72
 //depending on something x that I don't know.

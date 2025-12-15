@@ -67,10 +67,11 @@ if ($ore2 ! null) {
     inv_del(inv, $ore2, struct_param($bar_struct, ingredient_secondary_count));
 }
 inv_add(inv, $bar, 1);
+p_delay(1);
 
 if (afk_event = ^true) {
     ~macro_event_general_spawn(~macro_event_set_random);
     return;
 }
 
-weakqueue*(superheat_repeat, 3)($spell, $ore1);
+weakqueue*(superheat_repeat, 1)($spell, $ore1);
