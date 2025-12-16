@@ -193,7 +193,7 @@ model5=model_170_idk
 model6=model_176_idk
 model7=model_260_npc
 model8=model_502_obj_wear
-respawnrate=100
+respawnrate=5
 hitpoints=40
 attack=32
 strength=34
@@ -212,8 +212,8 @@ param=defend_anim,human_blunt_block
 param=attack_sound,mace_crush
 // param=defend_sound, TODO
 // osrs sounds warhammer_crush, steel_mail
-huntmode=cowardly
-huntrange=1
+huntmode=no_afk_timer_melee
+huntrange=5
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_532
 
