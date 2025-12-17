@@ -190,7 +190,7 @@ if ($data = null) {
     return;
 }
 if (stat(runecraft) >= 99) {
-    inv_add(inv, db_getfield($data, mining_table:rock_output, 0), calc(random(5) + 1));
+    inv_add(inv, db_getfield($data, mining_table:rock_output, 0), calc(random(2) + 2));
 } else if (stat(runecraft) >= 85) {
     inv_add(inv, db_getfield($data, mining_table:rock_output, 0), calc(random(3) + 1));
 } else {
