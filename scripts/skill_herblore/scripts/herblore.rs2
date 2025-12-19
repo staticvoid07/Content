@@ -7,12 +7,13 @@ inv_del(inv, $unid, 1);
 inv_add(inv, $identified_herb, 1);
 mes($message); // https://youtu.be/RVnSlXYGPe0?t=72
 stat_advance(herblore, $experience);
-weakqueue*(identify_herb_repeat, 1)($identified_herb, $slot, $unid);
+p_delay(0);
+if (inv_total(inv, $unid) > 0) {
+  weakqueue*(identify_herb_repeat, 1)($identified_herb, $slot, $unid);
+}
 
 [queue,identify_herb_repeat](namedobj $identified_herb, int $slot, obj $unid)
-if (inv_total(inv, $unid) > 0) {
-  ~identify_herb($identified_herb, $slot);
-}
+~identify_herb($identified_herb, $slot);
 
 /** Brew a potion. */
 [proc,brew_potion](struct $struct, namedobj $ingredient, namedobj $solvent, string $message, namedobj $mixture, int $experience)
@@ -25,12 +26,13 @@ mes($message);
 anim(human_herbing_vial, 0);
 sound_synth(grind, 0, 0);
 stat_advance(herblore, $experience);
-weakqueue*(brew_potion_repeat, 1)($struct, $ingredient, $solvent, $message, $mixture, $experience);
+p_delay(0);
+if (inv_total(inv, $ingredient) > 0 & inv_total(inv, $solvent) > 0) {
+  weakqueue*(brew_potion_repeat, 1)($struct, $ingredient, $solvent, $message, $mixture, $experience);
+}
 
 [queue,brew_potion_repeat](struct $struct, namedobj $ingredient, namedobj $solvent, string $message, namedobj $mixture, int $experience)
-if (inv_total(inv, $ingredient) > 0 & inv_total(inv, $solvent) > 0) {
-  ~brew_potion($struct, $ingredient, $solvent, $message, $mixture, $experience);
-}
+~brew_potion($struct, $ingredient, $solvent, $message, $mixture, $experience);
 
 /** Grind a herblore ingredient. */
 [proc,grind_ingredient](obj $grindable, namedobj $refined, string $message, int $slot)
@@ -41,12 +43,10 @@ inv_add(inv, $refined, 1);
 mes($message);
 anim(human_herbing_grind, 0);
 sound_synth(grind, 0, 0);
-weakqueue*(grind_ingredient_repeat, 1)($grindable, $refined, $message);
-
-[queue,grind_ingredient_repeat](obj $grindable, namedobj $refined, string $message)
+p_delay(0);
 if (inv_total(inv, $grindable) > 0) {
-  def_int $slot = ~inv_find(inv, $grindable, 0);
-  if ($slot >= 0) {
-    ~grind_ingredient($grindable, $refined, $message, $slot);
-  }
+  weakqueue*(grind_ingredient_repeat, 1)($grindable, $refined, $message, $slot);
 }
+
+[queue,grind_ingredient_repeat](obj $grindable, namedobj $refined, string $message, int $slot)
+~grind_ingredient($grindable, $refined, $message, $slot);

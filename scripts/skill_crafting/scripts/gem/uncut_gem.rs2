@@ -46,12 +46,16 @@ if (string_length($product_name) < 1) {
 def_int $low;
 def_int $high;
 $low, $high = db_getfield($data, gem_cutting_table:success_rate, 0);
+p_delay(0);
 if ($low ! null & $high ! null & stat_random(crafting, $low, $high) = false) {
     // they prob hardcode this but this is easier
     stat_advance(crafting, calc((db_getfield($data, gem_cutting_table:experience, 0) + 2)/4));
     // osrs except uppercase product name. needs confirmation
     mes("You mis-hit the chisel and smash the <$product_name> to pieces!");
     inv_add(inv, crushed_gemstone, 1);
+    if (inv_total(inv, $uncut_gem) > 0) {
+        weakqueue*(crafting_gem_repeat, 1)($uncut_gem);
+    }
     return;
 }
 
@@ -59,13 +63,10 @@ mes("You cut the <$product_name>.");
 inv_add(inv, $cut_gem, 1);
 stat_advance(crafting, db_getfield($data, gem_cutting_table:experience, 0));
 //-----------------------
-weakqueue*(crafting_gem_repeat, 2)($uncut_gem);
+if (inv_total(inv, $uncut_gem) > 0) {
+    weakqueue*(crafting_gem_repeat, 1)($uncut_gem);
+}
 //-----------------------
 
-[queue,crafting_gem_repeat](obj $last)
-if (inv_total(inv, $last) > 0) {
-    def_int $slot = ~inv_find(inv, $last, 0);
-    if ($slot >= 0) {
-        @crafting_gem(inv_getobj(inv, $slot));
-    }
-}
+[queue,crafting_gem_repeat](obj $uncut_gem)
+@crafting_gem($uncut_gem);
