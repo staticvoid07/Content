@@ -104,7 +104,7 @@ data=level,75
 // https://oldschool.runescape.wiki/w/Update:Salamanders_and_Special_Attack
 // gives 16 xp instead of 160 xp
 data=experience,1600
-data=respawn_ticks,32
+data=respawn_ticks,16
 data=loot,uncut_sapphire,1,1,105,an uncut sapphire
 data=loot,uncut_emerald,1,1,17,an uncut emerald
 data=loot,uncut_ruby,1,1,5,an uncut ruby
