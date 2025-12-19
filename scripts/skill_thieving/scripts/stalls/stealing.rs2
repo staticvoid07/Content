@@ -78,7 +78,8 @@ def_int $respawn_ticks = ~scale_by_playercount(db_getfield($data, stealing:respa
 
 if (loc_find($loc_coord, $loc) = true) {
     ~steal_from_stall($data, $loc_coord, $loc_angle, $loc_shape);
-    weakqueue*(attempt_steal_from_stall_queue, $respawn_ticks)($loc, $loc_coord, $loc_angle, $loc_shape);
+    p_delay(calc($respawn_ticks - 1));
+    weakqueue*(attempt_steal_from_stall_queue, 1)($loc, $loc_coord, $loc_angle, $loc_shape);
 }
 
 
