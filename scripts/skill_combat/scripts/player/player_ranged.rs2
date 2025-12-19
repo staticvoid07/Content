@@ -127,7 +127,8 @@ if($ammo = holy_water) {
 }
 if (random(^dropammo_chance) ! 0) {
     if (map_blocked(npc_coord) = false) {
-        inv_dropitem_delayed(worn, npc_coord, $ammo, 1, ^lootdrop_duration, $delay);
+        // dont drop ammo, basically autop pickup 
+        //inv_dropitem_delayed(worn, npc_coord, $ammo, 1, ^lootdrop_duration, $delay);
         return;
     }
 }
