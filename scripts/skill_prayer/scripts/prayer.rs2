@@ -51,7 +51,7 @@ if ($headicon > 0) {
 
 [proc,prayer_deactivate_conflicting](dbrow $data)
 def_int $i = 0;
-if (stat(prayer < 70)) {
+if (stat(prayer) < 70) {
     while ($i <= db_getfieldcount($data, prayers:prayer_deactivate)) {
         def_int $prayer = db_getfield($data, prayers:prayer_deactivate, $i);
         ~prayer_deactivate_specific($prayer);
