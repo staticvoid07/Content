@@ -52,11 +52,13 @@ walktrigger(stunned);
 [proc,steal_from_stall](dbrow $data, coord $loc_coord, int $loc_angle, locshape $loc_shape)
 // if guard sees (for first time), stop player from stealing.
 // guards proioritize over sellers
-if (~stealing_check_for_guard($data) = true) {
-    return;
-} else if (~stealing_check_for_owner($data) = true) {
-   return;
-}
+// remove guard check because of potential ragging
+// if (~stealing_check_for_guard($data) = true) {
+//     return;
+// } else 
+// if (~stealing_check_for_owner($data) = true) {
+//    return;
+// }
 def_int $experience = db_getfield($data, stealing:experience, 0);
 // osrs is 2x respawn speed, since they removed the scale by playercount
 def_int $respawn_ticks = ~scale_by_playercount(db_getfield($data, stealing:respawn_ticks, 0));
