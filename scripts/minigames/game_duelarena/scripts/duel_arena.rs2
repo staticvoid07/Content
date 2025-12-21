@@ -1,5 +1,5 @@
 [opplayer1,_]
-mes("Duelling is disabled.");
+mes("Dueling is disabled.");
 return;
 if (.busy = true) {
     mes("Other player is busy at the moment."); // https://youtu.be/YkJQDvB14-U?t=26
