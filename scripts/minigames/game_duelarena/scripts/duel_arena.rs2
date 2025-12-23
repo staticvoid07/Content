@@ -1,4 +1,5 @@
 [opplayer1,_]
+// disable dueling
 mes("Dueling is disabled.");
 return;
 if (.busy = true) {
