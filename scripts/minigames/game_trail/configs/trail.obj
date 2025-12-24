@@ -47,7 +47,7 @@ iop1=Look through
 tradeable=no
 
 [trail_clue_easy_map001_casket]
-name=Casket
+name=Casket (Easy)
 desc=I hope there's treasure in it.
 model=model_2450_obj
 2dxof=3
@@ -140,7 +140,7 @@ stackable=yes
 tradeable=no
 
 [trail_clue_hard_sextant001_casket]
-name=Casket
+name=Casket (Hard)
 desc=I hope there's treasure in it.
 model=model_2450_obj
 2dxof=3
@@ -779,7 +779,7 @@ category=trail_casket_medium
 tradeable=no
 
 [trail_clue_medium_map001_casket]
-name=Casket
+name=Casket (Medium)
 desc=I hope there's treasure in it.
 model=model_2450_obj
 2dxof=3
