@@ -1,9 +1,9 @@
 [oploc1,_outpost_gate]
-if(%barcrawl ! ^barcrawl_complete) {
-    if(npc_find(coord, barbguard1, 5, 0) = true) {
-        @outpost_guard_talk;
-    }
-}
+// if(%barcrawl ! ^barcrawl_complete) {
+//     if(npc_find(coord, barbguard1, 5, 0) = true) {
+//         @outpost_guard_talk;
+//     }
+// }
 sound_synth(iron_door_open, 0, 0);
 if(coordx(coord) > coordx(loc_coord)) { 
     p_teleport(loc_coord);
