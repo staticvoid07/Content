@@ -83,8 +83,8 @@ anim(human_pickuptable, 0);
 sound_synth(tap_fill, 0, 0);
 mes("You fill the <$container_name> from the <$source_name>.");
 // strongqueued in osrs but that was likely changed in Sept 2005 
-p_delay(0);
-weakqueue*(fill_container_water_repeat, 2)($container, loc_coord, loc_type);
+p_delay(1);
+weakqueue*(fill_container_water_repeat, 1)($container, loc_coord, loc_type);
 
 [queue,fill_container_water_repeat](obj $container, coord $coord, loc $loc)
 if (inv_total(inv, $container) > 0 & busy2 = false) {

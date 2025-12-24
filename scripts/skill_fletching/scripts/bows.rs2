@@ -41,7 +41,8 @@ mes("You add a string to the bow.");
 stat_advance(fletching, db_getfield($data, fletching_table:experience, 0));
 inv_add(inv, db_getfield($data, fletching_table:product, 0));
 inv_add(inv, db_getfield($data, fletching_table:product, 0));
-weakqueue*(string_repeat, 2)($unstrung_bow);
+p_delay(1);
+weakqueue*(string_repeat, 1)($unstrung_bow);
 
 [queue,string_repeat](obj $last)
 if (inv_total(inv, $last) > 0 & inv_total(inv, bow_string) > 0) {
