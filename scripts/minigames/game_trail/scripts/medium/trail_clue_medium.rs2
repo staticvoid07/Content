@@ -12,15 +12,16 @@
 ~full_trail_readclue(oc_param(last_item, trail_desc));
 
 [proc,progress_clue_medium](obj $current_clue, string $text)
-~trail_clue_progress;
+// ~trail_clue_progress;
 inv_del(inv, $current_clue, 1);
-if(~trail_clue_medium_complete = true) {
-    ~trail_clue_medium_reward;
-} else {
-    def_namedobj $new_clue = ~trail_clue_medium_getrandom;
-    inv_add(inv, $new_clue, 1);
-    ~objbox($new_clue, $text, 250, 0, 0);
-}
+~trail_clue_medium_reward;
+// if(~trail_clue_medium_complete = true) {
+//     ~trail_clue_medium_reward;
+// } else {
+//     def_namedobj $new_clue = ~trail_clue_medium_getrandom;
+//     inv_add(inv, $new_clue, 1);
+//     ~objbox($new_clue, $text, 250, 0, 0);
+// }
 
 // Key drop
 [proc,trail_checkmediumdrop]
