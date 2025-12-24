@@ -1322,7 +1322,7 @@ vislevel=122
 model1=model_2997_npc
 wanderrange=3
 maxrange=5
-respawnrate=178
+respawnrate=5
 hitpoints=116
 attack=105
 strength=104
@@ -1333,8 +1333,8 @@ param=defend_anim,hell_block
 param=death_anim,hell_death
 param=attack_sound,growl6
 param=defend_sound,growl5
-huntmode=cowardly
-huntrange=2
+huntmode=no_afk_timer_melee
+huntrange=5
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_104
 
@@ -2184,7 +2184,7 @@ vislevel=92
 model1=model_2942_npc
 wanderrange=6
 maxrange=8
-respawnrate=30
+respawnrate=5
 hitpoints=87
 attack=76
 strength=78
@@ -2199,8 +2199,8 @@ param=defend_sound,black_demon_hit
 param=death_sound,black_demon_death
 param=demonbane_vulnerable,yes
 param=death_drop,ashes
-huntmode=cowardly
-huntrange=3
+huntmode=no_afk_timer_melee
+huntrange=5
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_2025
 
@@ -3520,7 +3520,7 @@ model6=model_184_npc
 model7=model_511_npc
 //wanderrange=3
 //maxrange=5
-respawnrate=60
+respawnrate=5
 hitpoints=59
 attack=47
 strength=47
@@ -3537,7 +3537,7 @@ param=death_anim,human_transdeath
 param=attack_sound,hacksword_slash
 param=defend_sound,ice_warrior_hit
 param=death_sound,ice_warrior_death
-huntmode=cowardly
+huntmode=no_afk_timer_melee
 huntrange=5
 category=ice_warrior
 // Stats match osrs version but our version Vislvl is different.
@@ -3971,7 +3971,7 @@ model6=model_184_npc
 model7=model_511_npc
 //wanderrange=3
 //maxrange=5
-respawnrate=60
+respawnrate=5
 hitpoints=59
 attack=47
 strength=47
@@ -3988,7 +3988,7 @@ param=death_anim,human_transdeath
 param=attack_sound,hacksword_slash
 param=defend_sound,ice_warrior_hit
 param=death_sound,ice_warrior_death
-huntmode=cowardly
+huntmode=no_afk_timer_melee
 huntrange=5
 category=ice_warrior
 // Stats match osrs version but our version Vislvl is different.
@@ -4883,7 +4883,7 @@ model5=model_176_idk
 model6=model_254_idk
 model7=model_181_idk
 model8=model_533_obj_wear
-respawnrate=100
+respawnrate=5
 hitpoints=17
 attack=13
 strength=13
@@ -4897,6 +4897,8 @@ param=damagetype,^stab_style
 param=attack_anim,human_sword_stab
 param=defend_anim,human_sword_def
 param=attack_sound,hacksword_stab
+huntmode=no_afk_timer_melee
+huntrange=5
 // Stats match osrs version but our version Vislvl is different.
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_526
 
