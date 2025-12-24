@@ -607,9 +607,9 @@ height=5
 margin=15,15
 option1=Value
 option2=Buy 1
-option3=Buy 5
-option4=Buy 10
-option5=Buy 250
+option3=Buy 10
+option4=Buy 250
+option5=Buy 5000
 
 [com_76]
 type=text
