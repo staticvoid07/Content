@@ -45,7 +45,7 @@ if ($arrow_count > 1) {
 }
 stat_advance(fletching, multiply($arrow_count, 10));
 inv_add(inv, headless_arrow, $arrow_count);
-p_delay(1);
+p_delay(0);
 weakqueue*(make_headless_arrows_repeat, 1)();
 
 [queue,make_headless_arrows_repeat]()
@@ -89,7 +89,7 @@ if ($arrows_count > 1) {
 }
 stat_advance(fletching, multiply($arrows_count, db_getfield($data, fletching_table:experience, 0)));
 inv_add(inv, $product, $arrows_count);
-p_delay(1);
+p_delay(0);
 weakqueue*(make_arrows_repeat, 1)($arrow_tips);
 
 [queue,make_arrows_repeat](obj $arrow_tips)
