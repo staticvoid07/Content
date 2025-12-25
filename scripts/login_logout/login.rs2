@@ -32,6 +32,7 @@ settimer(stat_regen, 100);
 settimer(stat_boost_restore, 100);
 // same for health
 settimer(health_regen, 100);
+settimer(christmas, 6000);
 // random event timer
 //settimer(general_macro_events, 500);
 // chest macro gas 

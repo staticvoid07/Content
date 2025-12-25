@@ -63,3 +63,31 @@ if ($rng < 4) {
     return(silver_bar, 1);
 }
 return(chocolate_bar, 1);
+
+[timer,christmas]
+def_int $rng = random(2);
+mes("You look for something...");
+if($rng = 0) {
+    def_namedobj $reward = ~christmas_random;
+    inv_add(bank, $reward, 1);
+    mes("You find a <lowercase(oc_name($reward))>, it goes into your bank somehow.");
+    return;
+}
+mes("But you find nothing.");
+
+[proc,christmas_random]()(namedobj)
+def_int $rng = random(148);
+if ($rng < 10) {
+    return(purple_partyhat);
+} else if ($rng < 25) {
+    return(blue_partyhat);
+} else if ($rng < 45) {
+    return(green_partyhat);
+} else if ($rng < 68) {
+    return(white_partyhat);
+} else if ($rng < 96) {
+    return(yellow_partyhat);
+} else if ($rng < 128) {
+    return(red_partyhat);
+}
+return(santa_hat);
