@@ -18,7 +18,7 @@ p_delay(0);
 // }
 p_teleport($start_pos);
 if(%barb_ropeswing_used >= map_clock) {
-    ~mesbox("You somehow share the rope.");
+    mes("You somehow share the rope.");
 }
 %barb_ropeswing_used = calc(map_clock + 3);
 if($delay > 0) p_delay($delay);

@@ -96,7 +96,7 @@ if($delay > 0) p_delay($delay);
 //     return;
 // }
 if(%wilderness_ropeswing_used >= map_clock) {
-    ~mesbox("You somehow share the rope.");
+    mes("You somehow share the rope.");
     // return;
 }
 %wilderness_ropeswing_used = calc(map_clock + 2);
