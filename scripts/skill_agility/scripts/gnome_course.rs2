@@ -125,4 +125,5 @@ if(calc(%gnome_course_progress + 1) >= $completed) {
 if(%gnome_course_progress = 7) {
     stat_advance(agility, 390);
     %gnome_course_progress = 0;
+    p_run(^player_run_on);
 }

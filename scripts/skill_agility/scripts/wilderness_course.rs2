@@ -199,4 +199,5 @@ if(%wilderness_course_progress = 5) {
     mes("You reach the top.");
     stat_advance(agility, 4989);
     %wilderness_course_progress = 0;
+    p_run(^player_run_on);
 }

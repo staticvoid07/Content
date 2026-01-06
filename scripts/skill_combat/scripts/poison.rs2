@@ -10,6 +10,14 @@ if (map_members = ^false) {
 }
 
 if (%poison > -1) { 
+    if (~auto_consume_antipoison = true) {
+        return;
+    }
+
+    if (~auto_consume_super_antipoison = true) {
+        return;
+    }
+
     if (%poison = 0) {
         mes("You have been poisoned!");
     }

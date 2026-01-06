@@ -21,3 +21,24 @@ if (%dragonresist < map_clock) {
     return;
 }
 %dragonresist = sub(%dragonresist, map_clock);
+
+[proc,auto_consume_antidragon]()(boolean)
+if (inv_total(inv, 4dose1antidragon) > 0) {
+    inv_del(inv, 4dose1antidragon, 1);
+    inv_add(inv, 3dose1antidragon, 1);
+} else if (inv_total(inv, 3dose1antidragon) > 0) {
+    inv_del(inv, 3dose1antidragon, 1);
+    inv_add(inv, 2dose1antidragon, 1);
+} else if (inv_total(inv, 2dose1antidragon) > 0) {
+    inv_del(inv, 2dose1antidragon, 1);
+    inv_add(inv, 1dose1antidragon, 1);
+} else if (inv_total(inv, 1dose1antidragon) > 0) {
+    inv_del(inv, 1dose1antidragon, 1);
+} else {
+    return(false);
+}
+sound_synth(liquid, 0, 0);
+anim(human_eat, 0);
+%dragonresist = calc(map_clock + 600);
+mes("You drink some of your dragon potion.");
+return(true);

@@ -15,7 +15,20 @@ if (stat(hitpoints) = 0){
     return;
 }
 
+~auto_eat;
+
 ~ring_of_life_check;
+
+[proc,auto_eat]
+if (stat(hitpoints) <= calc(stat_base(hitpoints) / 2)) {
+    if (inv_total(inv, shark) > 0) {
+        inv_del(inv, shark, 1);
+        anim(human_eat, 0);
+        stat_heal(hitpoints, 20, 0);
+        mes("You eat a shark.");
+        ~auto_eat;
+    }
+}
 
 [queue,damage_player](int $amount)
 ~damage_self($amount);
