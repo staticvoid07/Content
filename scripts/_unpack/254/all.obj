@@ -470,3 +470,4 @@ param=slashdefence,93
 param=crushdefence,98
 param=magicdefence,-3
 param=rangedefence,82
+param=strengthbonus,3

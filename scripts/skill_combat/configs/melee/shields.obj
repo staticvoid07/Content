@@ -229,6 +229,7 @@ param=stabdefence,50
 param=slashdefence,52
 param=crushdefence,48
 param=rangedefence,50
+param=strengthbonus,5
 param=defend_anim,human_shield_defence
 
 [antidragonbreathshield]

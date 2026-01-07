@@ -103,6 +103,9 @@ def_int $maxhit = 30;
 if (inv_total(worn, antidragonbreathshield) > 0) {
     $maxhit = 5;
     mes("Your shield absorbs most of the dragon fire!"); // late 2004
+} else if (inv_total(worn, dragon_sq_shield) > 0) {
+    $maxhit = 5;
+    mes("Your shield absorbs most of the dragon fire!"); // late 2004
 } else if (%prayer12 = ^true) {
     $maxhit = 10;
 } else if (randominc($attack_roll) > randominc($defence_roll)) {
