@@ -9,9 +9,9 @@ obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 def_int $random = random(128);
 
 if ($random < 3) {
-    obj_add(npc_coord, steel_axe, 1, ^lootdrop_duration);
+    // obj_add(npc_coord, steel_axe, 1, ^lootdrop_duration);
 } else if ($random < 5) {
-    obj_add(npc_coord, mithril_sq_shield, 1, ^lootdrop_duration);
+    // obj_add(npc_coord, mithril_sq_shield, 1, ^lootdrop_duration);
 } else if ($random < 6) {
     obj_add(npc_coord, fire_battlestaff, 1, ^lootdrop_duration);
 } else if ($random < 7) {
@@ -41,7 +41,7 @@ if ($random < 3) {
 } else if ($random < 110) {
     obj_add(npc_coord, coins, 50, ^lootdrop_duration);
 } else if ($random < 113) {
-    obj_add(npc_coord, lobster, 1, ^lootdrop_duration);
+    // obj_add(npc_coord, lobster, 1, ^lootdrop_duration);
 } else if ($random < 115) {
     obj_add(npc_coord, steel_bar, 1, ^lootdrop_duration);
 } else if ($random < 116) {

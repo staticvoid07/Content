@@ -42,7 +42,7 @@ if ($random < 7)  {
 } else if ($random < 89) {
     obj_add(npc_coord, snape_grass, 1, ^lootdrop_duration);
 } else if ($random < 90 & %itgronigen >= ^itgronigen_complete) {
-    if (inv_total(bank, unholy_symbol_mould) > 0) {
+    if (inv_total(bank, unholy_symbol_mould) = 0) {
         obj_add(npc_coord, unholy_symbol_mould, 1, ^lootdrop_duration);
     }
 } else if ($random < 91) {
