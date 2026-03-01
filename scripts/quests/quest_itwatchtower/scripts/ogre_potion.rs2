@@ -97,7 +97,7 @@ switch_obj($secondary) {
 }
 
 [queue,ogrepotion_add_jangerberries_repeat](obj $secondary)
-~brew_potion($struct, $ingredient, $solvent, $message, $mixture, $experience);
+~ogrepotion_add_jangerberries($secondary);
 
 /** Potion explosion */
 [proc,potion_explosion](namedobj $ingredient, namedobj $solvent, string $message)
