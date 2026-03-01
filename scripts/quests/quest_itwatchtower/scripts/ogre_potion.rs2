@@ -79,14 +79,25 @@ switch_obj($secondary) {
     inv_del(inv, vial_water, 1);
     inv_add(inv, jangervial, 1);
     stat_advance(herblore, 100);
+    p_delay(0);
     mes("You mix the jangerberries into the water.");
+    if (inv_total(inv, jangerberries) > 0 & inv_total(inv, vial_water) > 0) {
+      weakqueue*(ogrepotion_add_jangerberries_repeat, 1)($secondary);
+    }
   case guamvial :
     inv_del(inv, jangerberries, 1);
     inv_del(inv, guamvial, 1);
     inv_add(inv, guamjangervial, 1);
     stat_advance(herblore, 100);
+    p_delay(0);
     mes("You mix the jangerberries into your potion.");
+    if (inv_total(inv, jangerberries) > 0 & inv_total(inv, vial_water) > 0) {
+      weakqueue*(ogrepotion_add_jangerberries_repeat, 1)($secondary);
+    }
 }
+
+[queue,ogrepotion_add_jangerberries_repeat](obj $secondary)
+~brew_potion($struct, $ingredient, $solvent, $message, $mixture, $experience);
 
 /** Potion explosion */
 [proc,potion_explosion](namedobj $ingredient, namedobj $solvent, string $message)
