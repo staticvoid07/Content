@@ -172,7 +172,7 @@ stock6=pink_skirt,5,100
 stock7=black_skirt,3,100
 stock8=blue_skirt,2,100
 stock9=red_cape,4,100
-stock10=silk,5,500
+stock10=silk,0,500
 stock11=priest_robe,3,100
 stock12=priest_gown,3,100
 
