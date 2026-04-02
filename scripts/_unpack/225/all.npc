@@ -5898,7 +5898,7 @@ model2=model_2854_npc
 members=yes
 wanderrange=4
 maxrange=6
-respawnrate=60
+respawnrate=5
 hitpoints=75
 attack=68
 strength=68
@@ -5917,8 +5917,8 @@ param=attack_sound,dragon_attack
 param=defend_sound,dragon_hit
 param=death_sound,dragon_death
 param=death_drop,dragon_bones
-huntmode=cowardly
-huntrange=4
+huntmode=no_afk_timer_melee
+huntrange=15
 // stats match osrs 1:1 but defence stats don't.
 // but the defense stats matches according to this site 1:1
 // http://web.archive.org/web/20190722072117/https://oldschool.runescape.wiki/w/Green_dragon
