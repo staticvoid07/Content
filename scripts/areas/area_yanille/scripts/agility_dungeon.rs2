@@ -101,7 +101,7 @@ mes("The chest is locked.");
 [oplocu,shuttwistedchest]
 // https://youtu.be/A4crb0CaneU?si=ty3obEvZ9cIxbJ4F&t=278, typos are all intentional
 if(last_useitem = sinister_key) {
-    weakqueue*(sinister_chest_queue, 0);
+    weakqueue*(sinister_chest_queue, 0)();
     return;
 }
 ~displaymessage(^dm_default);
@@ -126,9 +126,9 @@ if (inv_total(inv, sinister_key) > 0) {
     inv_add(inv, unidentified_kwuarm, 1);
     inv_add(inv, unidentified_torstol, 1);
     // Temp note: dur updated
-    loc_change(chestopen_inactive, 5);
+    //loc_change(chestopen_inactive, 5);
     p_delay(3);
-    weakqueue*(sinister_chest_queue, 1);
+    weakqueue*(sinister_chest_queue, 1)();
 }
 
 [oploc1,trappedchaosaltar]
